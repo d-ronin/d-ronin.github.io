@@ -24,7 +24,7 @@
 			//only proceed if we have a valid JSON object
 			if (stateObject.value && stateObject.value.header && stateObject.value.data) {
 				var headerRow = $('<tr/>');
-				var templateRow = $('<tr onclick="showTune(\'./test2.html#template=templates/dashboard_02.json#tune=####\')"></tr>');
+				var templateRow = $('<tr onclick="showTune(\'./resultdetail.html#template=templates/dashboard_02.json#tune=####\')"></tr>');
 				var rowHTML;
 				
 				//Loop through the 'header' array, building up our header row and also a template row
