@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Autotunes</title>
+	<meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="viewport" content = "width = device-width, initial-scale = 1, user-scalable = no" />
+	<!-- Add jQuery library -->
+	<script type="text/javascript" src="./js/thirdparty/jquery-1.10.1.min.js"></script>
+    <!-- Add fancyBox -->
+	<link rel="stylesheet" href="./css/thirdparty/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+	    <link href="css/freeboard.min.css" rel="stylesheet" />
+    <script src="js/freeboard.thirdparty.js"></script>
+	<script type="text/javascript" src="./js/thirdparty/jquery.fancybox.pack.js?v=2.1.5"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+			$('.fancybox').fancybox();
+
+			/*
+			 *  Different effects
+			 */
+
+			// Change title type, overlay closing speed
+			$(".fancybox-effects-a").fancybox({
+				helpers: {
+					title : {
+						type : 'outside'
+					},
+					overlay : {
+						speedOut : 0
+					}
+				}
+			});
+
+			// Disable opening and closing animations, change title type
+			$(".fancybox-effects-b").fancybox({
+				openEffect  : 'none',
+				closeEffect	: 'none',
+
+				helpers : {
+					title : {
+						type : 'over'
+					}
+				}
+			});
+
+			// Set custom style, close if clicked, change title type and overlay color
+			$(".fancybox-effects-c").fancybox({
+				wrapCSS    : 'fancybox-custom',
+				closeClick : true,
+
+				openEffect : 'none',
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					overlay : {
+						css : {
+							'background' : 'rgba(238,238,238,0.85)'
+						}
+					}
+				}
+			});
+
+			// Remove padding, set opening and closing animations, close if clicked and disable overlay
+			$(".fancybox-effects-d").fancybox({
+				padding: 0,
+
+				openEffect : 'elastic',
+				openSpeed  : 150,
+
+				closeEffect : 'elastic',
+				closeSpeed  : 150,
+
+				closeClick : true,
+
+				helpers : {
+					overlay : null
+				}
+			});
+
+			/*
+			 *  Button helper. Disable animations, hide close button, change title type and content
+			 */
+
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+
+
+			/*
+			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+			 */
+
+			$('.fancybox-thumbs').fancybox({
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+				arrows    : false,
+				nextClick : true,
+
+				helpers : {
+					thumbs : {
+						width  : 50,
+						height : 50
+					}
+				}
+			});
+
+			/*
+			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+			*/
+			$('.fancybox-media')
+				.attr('rel', 'media-gallery')
+				.fancybox({
+					openEffect : 'none',
+					closeEffect : 'none',
+					prevEffect : 'none',
+					nextEffect : 'none',
+
+					arrows : false,
+					helpers : {
+						media : {},
+						buttons : {}
+					}
+				});
+
+			/*
+			 *  Open manually
+			 */
+
+			$("#fancybox-manual-a").click(function() {
+				$.fancybox.open('1_b.jpg');
+			});
+
+			$("#fancybox-manual-b").click(function() {
+				$.fancybox.open({
+					href : 'test2.html',
+					type : 'iframe',
+					padding : 5
+				});
+			});
+
+			$("#fancybox-manual-c").click(function() {
+				$.fancybox.open([
+					{
+						href : '1_b.jpg',
+						title : 'My title'
+					}, {
+						href : '2_b.jpg',
+						title : '2nd title'
+					}, {
+						href : '3_b.jpg'
+					}
+				], {
+					helpers : {
+						thumbs : {
+							width: 75,
+							height: 50
+						}
+					}
+				});
+			});
+
+
+		});
+	</script>
+    <script type="text/javascript">
+        head.js("js/freeboard+plugins.js",
+                // *** Load more plugins here ***
+				"plugins/freeboard/widget.tables.js",
+                function(){
+                    $(function()
+                    { //DOM Ready
+                        freeboard.initialize(false);
+                        var templateSource = "templates/recentTunes.json"; //window.location.hash.match(/(&|#)template=([^&]+)/);
+						var resultSource = window.location.hash.match(/(&|#)tune=([^&]+)/);
+                        if (templateSource !== null) {
+                            $.getJSON(templateSource, function(data) {
+                                freeboard.loadDashboard(data, function() {
+								var ds = {"url":"https://thingproxy.freeboard.io/fetch/http://dronin-autotown.appspot.com/api/recentTunes"};
+								freeboard.setDatasourceSettings("recentTunes", ds); 								
+                                });
+                            });
+                        }
+
+                    });
+                });				
+    </script>	
+	<script>
+	function showTune(id) { 
+		$.fancybox.open({
+					href : id,
+					type : 'iframe',
+					padding : 5
+				});
+	}
+	</script>	
+	<style type="text/css">
+		.fancybox-custom .fancybox-skin {
+			box-shadow: 0 0 2px #222;
+		}
+		.fancybox-skin {
+		position: relative;
+		background: #272727;
+		color: #444;
+		text-shadow: none;
+		-webkit-border-radius: 4px;
+		   -moz-border-radius: 4px;
+				border-radius: 4px;
+		}
+		td{
+			cursor:pointer;
+		}
+		.list-table{
+		width:100%; 
+		border-collapse:collapse; 
+		}
+		.list-table td{ 
+			padding:7px; border:#272727 1px solid;
+		}
+		/* Define the default color for all the table rows */
+		.list-table tr{
+			background: #272727;
+		}
+		/* Define the hover highlight color for the table row */
+		.list-table tr:hover {
+			  background-color: #d97600;
+			  color: #000000;
+		}
+		#title-header {
+			width: 700px ;
+			margin-left: auto ;
+			margin-right: auto ;
+			position: relative;
+			z-index: 50;
+			padding: 32px;
+			padding-bottom: 0px;
+		}
+		
+		
+	</style>	
+</head>
+<body>
+<!-- <div id="main-content">
+<a class="fancybox fancybox.iframe" href="test2.html#template=templates/dashboard_02.json#tune=ahFzfmRyb25pbi1hdXRvdG93bnIYCxILVHVuZVJlc3VsdHMYgICAgK-GiAoM">Iframe</a>
+</div> -->
+<header id="title-header" > 
+<a href="../index.html">
+<img  src="img/atHeader.png" alt="dRonin Autotune" height="88" width="686">
+</a> 
+</header>
+<div id="board-content">
+    <img id="dash-logo" data-bind="attr:{src: header_image}, visible:header_image()">
+    <div class="gridster responsive-column-width">
+        <ul data-bind="grid: true">
+        </ul>
+    </div>
+</div>
+<header id="main-header" > 
+
+</header>
+
+<div style="display:hidden">
+    <ul data-bind="template: { name: 'pane-template', foreach: panes}">
+    </ul>
+</div>
+
+<script type="text/html" id="pane-template">
+    <li data-bind="pane: true">
+        <header>
+            <h1 data-bind="text: title"></h1>
+        </header>
+        <section data-bind="foreach: widgets">
+            <div class="sub-section" data-bind="css: 'sub-section-height-' + height()">
+                <div class="widget" data-bind="widget: true, css:{fillsize:fillSize}"></div>
+                <div class="sub-section-tools">
+                    <ul class="board-toolbar">
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </li>
+</script>
+
+</body>
+</html>
