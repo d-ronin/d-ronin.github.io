@@ -46,7 +46,13 @@
 						var hmm = rowHTML[0].attributes[0].nodeValue;
 						hmm = hmm.replace('####', v.Key);
 						rowHTML[0].attributes[0].nodeValue = hmm;
-						$.each(v, function(dataKey, dataValue){									
+						$.each(v, function(dataKey, dataValue){	
+							if (dataKey === "Tau")
+							{
+								rowHTML.find('.' + classObject[dataKey]).html((dataValue*1000).toFixed(2));
+								//continue;
+							}
+							else
 							rowHTML.find('.' + classObject[dataKey]).html(dataValue);
 						})
 						//rowHTML = rowHTML.replace('####', 'ahFzfmRyb25pbi1hdXRvdG93bnIYCxILVHVuZVJlc3VsdHMYgICAgK-GiAoM');
