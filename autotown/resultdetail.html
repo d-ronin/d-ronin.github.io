@@ -21,7 +21,8 @@
                         if (templateSource !== null) {
                             $.getJSON(templateSource[2], function(data) {
                                 freeboard.loadDashboard(data, function() {
-								var ds = {"url":"https://thingproxy.freeboard.io/fetch/http://dronin-autotown.appspot.com/api/tune?tune=" + resultSource[2]};
+								tuneId = resultSource[2];
+								var ds = {"url":"https://thingproxy.freeboard.io/fetch/http://dronin-autotown.appspot.com/api/tune?tune=" + tuneId};
 								freeboard.setDatasourceSettings("autotown", ds); 								
                                 });
                             });
@@ -30,8 +31,16 @@
                     });
                 });				
     </script>
+	<script language="javascript" type="text/javascript">
+		var scrt_var = 10; 
+		openPage = function() {
+		location.href = "http://dronin-autotown.appspot.com/at/tune/"+tuneId;
+		}
+	</script>
 </head>
-<body>
+<body style="color:lightgray">
+ Get detailed <a href ="javascript:openPage()">Result </a>
+</html>
 <div id="board-content">
     <img id="dash-logo" data-bind="attr:{src: header_image}, visible:header_image()">
     <div class="gridster responsive-column-width">
