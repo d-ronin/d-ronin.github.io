@@ -50,7 +50,11 @@
 							if (dataKey === "Tau")
 							{
 								rowHTML.find('.' + classObject[dataKey]).html((dataValue*1000).toFixed(2));
-								//continue;
+							}
+							else if (dataKey === "Timestamp")
+							{
+							var date = new Date(dataValue);
+							rowHTML.find('.' + classObject[dataKey]).html(date.toLocaleString());
 							}
 							else
 							rowHTML.find('.' + classObject[dataKey]).html(dataValue);
