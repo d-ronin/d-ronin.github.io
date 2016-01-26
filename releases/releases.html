@@ -27,45 +27,41 @@
 	<script type="text/javascript" src="./js/micromarkdown.min.js"></script>
 	<script type="text/javascript" src="./js/mustache.min.js"></script>
 	<script type="text/javascript" src="./js/jquery-1.12.0.min.js"></script>
-	<script>
-	var view = {
-    title : "Mustache",
-    rank : "Good"
-};
+	
+	<script>	
+	function loadtemp(json){
+		json.markdown = micromarkdown.parse(json.body);
+		var output = Mustache.render(
+		"<p><h2><b>{{name}}</b></h2></p>{{#assets}}<p><a href={{browser_download_url}}><h4><b>{{label}}</b></h4></a></p>{{/assets}}<p>{{{markdown}}}</p>", json);
+		document.getElementById('rank').innerHTML = output;
+	}
 
-function loadtemp(json){
-	json.markdown = micromarkdown.parse(json.body); //function () {return micromarkdown.parse(json.body)}; 
-    var output = Mustache.render(
-	"<p><h2><b>{{name}}</b></h2></p>{{#assets}}<p><a href={{browser_download_url}}><h4><b>{{label}}</b></h4></a></p>{{/assets}}<p>{{{markdown}}}</p>", json);
-    document.getElementById('rank').innerHTML = output;
-}
+	function requestFail() {
+		$("#latest-release").html("<p>Unable to locate release!(</p>");
+	}
 
-function requestFail() {
-	$("#latest-release").html("<p>Unable to locate release!(</p>");
-}
+	function requestJSON(url, callback) {
+		$.ajax({
+			url: url,
+			complete: function(xhr) {
+				callback.call(null, xhr.responseJSON);
+			},
+			error: requestFail
+		});
+	}
 
-function requestJSON(url, callback) {
-	$.ajax({
-		url: url,
-		complete: function(xhr) {
-			callback.call(null, xhr.responseJSON);
-		},
-		error: requestFail
-	});
-}
+	$(document).ready(function() {
+		var requri = 'https://api.github.com/repos/d-ronin/dRonin/releases/latest';
+		requestJSON(requri, function(json) {
+			if(json.message == "Not Found") {
+				releaseNotFound();
+			}
+			else {
+				loadtemp(json);
+			}
+		});
+	});</script>		
 
-$(document).ready(function() {
-	var requri = 'https://api.github.com/repos/d-ronin/dRonin/releases/latest';
-    requestJSON(requri, function(json) {
-    	if(json.message == "Not Found") {
-    		releaseNotFound();
-    	}
-    	else {
-    		loadtemp(json);
-    	}
-    });
-});</script>		
-	<!-- fonts http://zurb.com/playground/foundation-icon-fonts-3 -->
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -82,7 +78,7 @@ $(document).ready(function() {
         <span>Menu</span></a>
 		<img class="img-centered" src="../assets/images/logos/logo_final_full.png" alt="dRonin" height="196" width="480">
       <nav class="m-header--nav js-header--list is-away">
-        <a href="../index.html">Home</a><a href="autotown/autotuneresults.html"><i class="fi-graph-bar"></i>AutoTune Results</a><a target="_blank" href="http://kiwiirc.com/client/irc.kiwiirc.com/dronin/">IRC #dRonin</a><a target="_blank" href="https://github.com/d-ronin/dRonin"><i class="fi-social-github"></i>GitHub </a>
+        <a href="../index.html">Home</a><a href="../autotown/autotuneresults.html"><i class="fi-graph-bar"></i>AutoTune Results</a><a target="_blank" href="http://kiwiirc.com/client/irc.kiwiirc.com/dronin/">IRC #dRonin</a><a target="_blank" href="https://github.com/d-ronin/dRonin"><i class="fi-social-github"></i>GitHub </a>
       </nav>
     </header>
     <div class="row">
