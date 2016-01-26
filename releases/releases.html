@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head prefix="og: http://ogp.me/ns# dc: http://purl.org/dc/terms/">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>dRonin</title>
+    <meta content="dRonin is an autopilot/flight controller firmware for controllers in the OpenPilot Tau Labs family. It's aimed at a variety of use cases: acro, racing, autonomous flight, and vehicle research for aerial vehicles such as quadcopters, hexacopters, octocopters and other multirotors, helicopters and rc aircraft" name="description" />
+    <meta content="index,follow" name="robots" />
+    <meta content="yes" name="mobile-web-app-capable" />
+    <meta content="dRonin-boilerplate" name="application-name" />
+    <link href="http://d-ronin.github.io/icons/chrome-touch-icon-192x192.png" rel="icon" sizes="192x192" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="dRonin-boilerplate" name="apple-mobile-web-app-title" />
+    <link href="http://d-ronin.github.io/icons/apple-touch-icon.png" rel="apple-touch-icon" />
+    <meta content="http://d-ronin.github.io/icons/ms-touch-icon-144x144-precomposed.png" name="msapplication-TileImage" />
+    <meta content="#607D8B" name="msapplication-TileColor" />
+    <meta content="#607D8B" name="theme-color" />
+    <link href="http://d-ronin.github.io/icons/favicon-196x196.png" rel="icon" sizes="196x196" type="image/png" />
+    <link href="http://d-ronin.github.io/icons/favicon-160x160.png" rel="icon" sizes="160x160" type="image/png" />
+    <link href="http://d-ronin.github.io/icons/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png" />
+    <link href="http://d-ronin.github.io/icons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="http://d-ronin.github.io/icons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+	<link href="../assets/stylesheets/main.css" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono:400|Lato:300,400,700" rel="stylesheet" type="text/css" />
+	<script src="../assets/javascripts/modernizr-6e6719c6.js" type="text/javascript" defer="defer"></script>
+	<script type="text/javascript" src="./js/micromarkdown.min.js"></script>
+	<script type="text/javascript" src="./js/mustache.min.js"></script>
+	<script type="text/javascript" src="./js/jquery-1.12.0.min.js"></script>
+	<script>
+	var view = {
+    title : "Mustache",
+    rank : "Good"
+};
+
+function loadtemp(json){
+	json.markdown = micromarkdown.parse(json.body); //function () {return micromarkdown.parse(json.body)}; 
+    var output = Mustache.render(
+	"<p><h2><b>{{name}}</b></h2></p>{{#assets}}<p><a href={{browser_download_url}}><h4><b>{{label}}</b></h4></a></p>{{/assets}}<p>{{{markdown}}}</p>", json);
+    document.getElementById('rank').innerHTML = output;
+}
+
+function requestFail() {
+	$("#latest-release").html("<p>Unable to locate release!(</p>");
+}
+
+function requestJSON(url, callback) {
+	$.ajax({
+		url: url,
+		complete: function(xhr) {
+			callback.call(null, xhr.responseJSON);
+		},
+		error: requestFail
+	});
+}
+
+$(document).ready(function() {
+	var requri = 'https://api.github.com/repos/d-ronin/dRonin/releases/latest';
+    requestJSON(requri, function(json) {
+    	if(json.message == "Not Found") {
+    		releaseNotFound();
+    	}
+    	else {
+    		loadtemp(json);
+    	}
+    });
+});</script>		
+	<!-- fonts http://zurb.com/playground/foundation-icon-fonts-3 -->
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-71912055-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+  </head>
+  <body class="index">
+    <header class="m-header" id="header-top" role="banner"><a id="js-menu--button" class="m-header--menu" href="#header-top">
+        <span>Menu</span></a>
+		<img class="img-centered" src="../assets/images/logos/logo_final_full.png" alt="dRonin" height="196" width="480">
+      <nav class="m-header--nav js-header--list is-away">
+        <a href="../index.html">Home</a><a href="autotown/autotuneresults.html"><i class="fi-graph-bar"></i>AutoTune Results</a><a target="_blank" href="http://kiwiirc.com/client/irc.kiwiirc.com/dronin/">IRC #dRonin</a><a target="_blank" href="https://github.com/d-ronin/dRonin"><i class="fi-social-github"></i>GitHub </a>
+      </nav>
+    </header>
+    <div class="row">
+      <div class="medium-12 columns">
+        <div class="layout-section text-center">
+          <h2>
+            <div id="rank"></div>
+          </h2>
+        </div>
+      </div>
+    </div>
+    <footer class="layout--footer" role="contentinfo">
+      <div class="row">
+        <div class="medium-12 columns">
+          <p>
+            <a href="">dRonin.org</a> <time datetime="2016-1-25"></time></a>
+          </p>
+        </div>
+      </div>
+    </footer>
+	<script src="../assets/javascripts/application-d2500355.js" type="text/javascript"></script>
+  </body>
+</html>

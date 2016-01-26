@@ -8805,8 +8805,9 @@ dl {
     font-family: inherit;
     font-size: 1rem;
     line-height: 1.6;
-    list-style-position: outside;
-    margin-bottom: 1.25rem
+    list-style-position: inside;
+    margin-bottom: 1.25rem;
+	text-align: left;
 }
 ul {
     margin-left: 1.1rem
