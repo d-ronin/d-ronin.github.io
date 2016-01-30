@@ -23,6 +23,8 @@
                                 freeboard.loadDashboard(data, function() {
 								tuneId = resultSource[2];
 								var ds = {"url":"https://thingproxy.freeboard.io/fetch/http://dronin-autotown.appspot.com/api/tune?tune=" + tuneId};
+								var detailUrl = "http://dronin-autotown.appspot.com/at/tune/"+tuneId;
+								document.getElementById("detailLink").setAttribute("href",detailUrl);
 								freeboard.setDatasourceSettings("autotown", ds); 								
                                 });
                             });
@@ -32,14 +34,13 @@
                 });				
     </script>
 	<script language="javascript" type="text/javascript">
-		var scrt_var = 10; 
-		openPage = function() {
-		location.href = "http://dronin-autotown.appspot.com/at/tune/"+tuneId;
+		setBackground = function() {
+		<!-- Do set background -->
 		}
 	</script>
 </head>
 <body style="color:lightgray; text-align: center">
- <H2><a href ="javascript:openPage()">Click here for detailed result</a><H2>
+ <H4><a id="detailLink">Click here for detailed result</a><H4>
 </html>
 <div id="board-content">
     <img id="dash-logo" data-bind="attr:{src: header_image}, visible:header_image()">
