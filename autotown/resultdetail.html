@@ -24,7 +24,8 @@
 								tuneId = resultSource[2];
 								var ds = {"url":"https://thingproxy.freeboard.io/fetch/http://dronin-autotown.appspot.com/api/tune?tune=" + tuneId};
 								var detailUrl = "http://dronin-autotown.appspot.com/at/tune/"+tuneId;
-								document.getElementById("detailLink").setAttribute("href",detailUrl);
+								var link = document.getElementById("detailLink");
+								link.setAttribute("href",detailUrl);
 								freeboard.setDatasourceSettings("autotown", ds); 								
                                 });
                             });
@@ -33,11 +34,6 @@
                     });
                 });				
     </script>
-	<script language="javascript" type="text/javascript">
-		setBackground = function() {
-		<!-- Do set background -->
-		}
-	</script>
 </head>
 <body style="color:lightgray; text-align: center">
  <H4><a id="detailLink">Click here for detailed result</a><H4>

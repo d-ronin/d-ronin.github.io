@@ -15,177 +15,12 @@
     <script src="js/freeboard.thirdparty.js"></script>
 	<script type="text/javascript" src="./js/thirdparty/jquery.fancybox.pack.js?v=2.1.5"></script>
 	<script type="text/javascript">
+		$('iframe#fancybox-frame').load(function() {
+		  alert("the iframe has been loaded");
+		});
+	
 		$(document).ready(function() {
-			/*
-			 *  Simple image gallery. Uses default settings
-			 */
-
 			$('.fancybox').fancybox();
-
-			/*
-			 *  Different effects
-			 */
-
-			// Change title type, overlay closing speed
-			$(".fancybox-effects-a").fancybox({
-				helpers: {
-					title : {
-						type : 'outside'
-					},
-					overlay : {
-						speedOut : 0
-					}
-				}
-			});
-
-			// Disable opening and closing animations, change title type
-			$(".fancybox-effects-b").fancybox({
-				openEffect  : 'none',
-				closeEffect	: 'none',
-
-				helpers : {
-					title : {
-						type : 'over'
-					}
-				}
-			});
-
-			// Set custom style, close if clicked, change title type and overlay color
-			$(".fancybox-effects-c").fancybox({
-				wrapCSS    : 'fancybox-custom',
-				closeClick : true,
-
-				openEffect : 'none',
-
-				helpers : {
-					title : {
-						type : 'inside'
-					},
-					overlay : {
-						css : {
-							'background' : 'rgba(238,238,238,0.85)'
-						}
-					}
-				}
-			});
-
-			// Remove padding, set opening and closing animations, close if clicked and disable overlay
-			$(".fancybox-effects-d").fancybox({
-				padding: 0,
-
-				openEffect : 'elastic',
-				openSpeed  : 150,
-
-				closeEffect : 'elastic',
-				closeSpeed  : 150,
-
-				closeClick : true,
-
-				helpers : {
-					overlay : null
-				}
-			});
-
-			/*
-			 *  Button helper. Disable animations, hide close button, change title type and content
-			 */
-
-			$('.fancybox-buttons').fancybox({
-				openEffect  : 'none',
-				closeEffect : 'none',
-
-				prevEffect : 'none',
-				nextEffect : 'none',
-
-				closeBtn  : false,
-
-				helpers : {
-					title : {
-						type : 'inside'
-					},
-					buttons	: {}
-				},
-
-				afterLoad : function() {
-					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
-				}
-			});
-
-
-			/*
-			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
-			 */
-
-			$('.fancybox-thumbs').fancybox({
-				prevEffect : 'none',
-				nextEffect : 'none',
-
-				closeBtn  : false,
-				arrows    : false,
-				nextClick : true,
-
-				helpers : {
-					thumbs : {
-						width  : 50,
-						height : 50
-					}
-				}
-			});
-
-			/*
-			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
-			*/
-			$('.fancybox-media')
-				.attr('rel', 'media-gallery')
-				.fancybox({
-					openEffect : 'none',
-					closeEffect : 'none',
-					prevEffect : 'none',
-					nextEffect : 'none',
-
-					arrows : false,
-					helpers : {
-						media : {},
-						buttons : {}
-					}
-				});
-
-			/*
-			 *  Open manually
-			 */
-
-			$("#fancybox-manual-a").click(function() {
-				$.fancybox.open('1_b.jpg');
-			});
-
-			$("#fancybox-manual-b").click(function() {
-				$.fancybox.open({
-					href : 'test2.html',
-					type : 'iframe',
-					padding : 5
-				});
-			});
-
-			$("#fancybox-manual-c").click(function() {
-				$.fancybox.open([
-					{
-						href : '1_b.jpg',
-						title : 'My title'
-					}, {
-						href : '2_b.jpg',
-						title : '2nd title'
-					}, {
-						href : '3_b.jpg'
-					}
-				], {
-					helpers : {
-						thumbs : {
-							width: 75,
-							height: 50
-						}
-					}
-				});
-			});
 		});
 	</script>
     <script type="text/javascript">
@@ -206,7 +41,6 @@
                                 });
                             });
                         }
-
                     });
                 });				
     </script>	
@@ -215,8 +49,21 @@
 		$.fancybox.open({
 					href : id,
 					type : 'iframe',
-					padding : 5
+					padding : 5,
+					onUpdate : function(){
+						started(this);
+					}
 				});
+	}
+	
+	function started(obj) {
+		if (obj.content[0].contentDocument){
+		obj.skin[0].style.background = "#272727";
+		return;
+		}
+		obj.skin[0].style.background = "lightgray";
+		return;
+
 	}
 	</script>	
 	<style type="text/css">
@@ -266,53 +113,44 @@
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
 	  ga('create', 'UA-71912055-1', 'auto');
 	  ga('send', 'pageview');
-
 	</script>		
 </head>
 <body>
-<!-- <div id="main-content">
-<a class="fancybox fancybox.iframe" href="test2.html#template=templates/dashboard_02.json#tune=ahFzfmRyb25pbi1hdXRvdG93bnIYCxILVHVuZVJlc3VsdHMYgICAgK-GiAoM">Iframe</a>
-</div> -->
-<header id="title-header" > 
-<a href="../index.html">
-<img  src="img/atHeader.png" alt="dRonin Autotune" height="88" width="686">
-</a> 
-</header>
-<div id="board-content">
-    <img id="dash-logo" data-bind="attr:{src: header_image}, visible:header_image()">
-    <div class="gridster responsive-column-width">
-        <ul data-bind="grid: true">
-        </ul>
-    </div>
-</div>
-<header id="main-header" > 
-
-</header>
-
-<div style="display:hidden">
-    <ul data-bind="template: { name: 'pane-template', foreach: panes}">
-    </ul>
-</div>
-
-<script type="text/html" id="pane-template">
-    <li data-bind="pane: true">
-        <header>
-            <h1 data-bind="text: title"></h1>
-        </header>
-        <section data-bind="foreach: widgets">
-            <div class="sub-section" data-bind="css: 'sub-section-height-' + height()">
-                <div class="widget" data-bind="widget: true, css:{fillsize:fillSize}"></div>
-                <div class="sub-section-tools">
-                    <ul class="board-toolbar">
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </li>
-</script>
-
+	<header id="title-header" > 
+	<a href="../index.html">
+	<img  src="img/atHeader.png" alt="dRonin Autotune" height="88" width="686">
+	</a> 
+	</header>
+	<div id="board-content">
+		<img id="dash-logo" data-bind="attr:{src: header_image}, visible:header_image()">
+		<div class="gridster responsive-column-width">
+			<ul data-bind="grid: true">
+			</ul>
+		</div>
+	</div>
+	<header id="main-header" >
+	</header>
+	<div style="display:hidden">
+		<ul data-bind="template: { name: 'pane-template', foreach: panes}">
+		</ul>
+	</div>
+	<script type="text/html" id="pane-template">
+		<li data-bind="pane: true">
+			<header>
+				<h1 data-bind="text: title"></h1>
+			</header>
+			<section data-bind="foreach: widgets">
+				<div class="sub-section" data-bind="css: 'sub-section-height-' + height()">
+					<div class="widget" data-bind="widget: true, css:{fillsize:fillSize}"></div>
+					<div class="sub-section-tools">
+						<ul class="board-toolbar">
+						</ul>
+					</div>
+				</div>
+			</section>
+		</li>
+	</script>
 </body>
 </html>
