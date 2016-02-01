@@ -47,7 +47,7 @@ function getTitle(text) {
 // Make the actual CORS request.
 function makeCorsRequest() {
   // All HTML5 Rocks properties support CORS.
-  var url = 'https://dronin-autotown.appspot.com/api/recentTunes';
+  var url = 'http://dronin-autotown.appspot.com/api/recentTunes';
 
   var xhr = createCORSRequest('GET', url);
   if (!xhr) {
