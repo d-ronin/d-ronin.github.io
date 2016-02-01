@@ -4,14 +4,15 @@
 
 <h2>Recent Tunes</h2>
 
-<button type="button" onclick="makeCorsRequest()">Request data</button>
-
+<button type="button" onclick="tryCorsHttp()">Request data http</button>
+<button type="button" onclick="tryCorsHttps()">Request data https</button>
+<button type="button" onclick="loadWithProxy()">Request data proxy</button>
 <p id="demo"></p>
 
 
 <script>
-function loadDoc() {
-var requri = 'http://dronin-autotown.appspot.com/api/recentTunes';
+function loadWithProxy() {
+var requri = "https://thingproxy.freeboard.io/fetch/http://dronin-autotown.appspot.com/api/recentTunes";
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
@@ -20,6 +21,16 @@ var requri = 'http://dronin-autotown.appspot.com/api/recentTunes';
   };
   xhttp.open("GET", requri, true);
   xhttp.send();
+}
+
+function tryCorsHttp() {
+var requri = "http://dronin-autotown.appspot.com/api/recentTunes";
+makeCorsRequest(requri);
+}
+
+function tryCorsHttps() {
+var requri = "https://dronin-autotown.appspot.com/api/recentTunes";
+makeCorsRequest(requri);
 }
 
 // Create the XHR object.
@@ -45,9 +56,9 @@ function getTitle(text) {
 }
 
 // Make the actual CORS request.
-function makeCorsRequest() {
+function makeCorsRequest(url) {
   // All HTML5 Rocks properties support CORS.
-  var url = 'http://dronin-autotown.appspot.com/api/recentTunes';
+
 
   var xhr = createCORSRequest('GET', url);
   if (!xhr) {
@@ -59,11 +70,11 @@ function makeCorsRequest() {
   xhr.onload = function() {
     var text = xhr.responseText;
     var title = getTitle(text);
-    alert('Response from CORS request to ' + url + ': ' + title);
+    document.getElementById("demo").innerHTML = 'Response from CORS request to ' + url + ': ' + title);
   };
 
   xhr.onerror = function() {
-    alert('Woops, there was an error making the request.');
+    document.getElementById("demo").innerHTML = 'Unable to do CORS.';
   };
 
   xhr.send();
