@@ -4,13 +4,30 @@
 
 <h2>Recent Tunes</h2>
 
-<button type="button" onclick="tryCorsHttp()">Request data http</button>
-<button type="button" onclick="tryCorsHttps()">Request data https</button>
+<button type="button" onclick="tryCorsHttp()">CORS Request data http</button>
+<button type="button" onclick="tryCorsHttps()">CORS Request data https</button>
 <button type="button" onclick="loadWithProxy()">Request data proxy</button>
+<button type="button" onclick="loadPlain()">Plain Request</button>
 <p id="demo"></p>
 
 
 <script>
+
+function loadPlain() {
+var requri = 'https://dronin-autotown.appspot.com/api/recentTunes';
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      document.getElementById("demo").innerHTML = xhttp.responseText;
+    }
+	else{
+	document.getElementById("demo").innerHTML = 'Regular request failed!';
+	}
+  };
+  xhttp.open("GET", requri, true);
+  xhttp.send();
+}
+
 function loadWithProxy() {
 var requri = 'https://thingproxy.freeboard.io/fetch/http://dronin-autotown.appspot.com/api/recentTunes';
   var xhttp = new XMLHttpRequest();
