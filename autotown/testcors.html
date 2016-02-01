@@ -2,7 +2,7 @@
 <html>
 <body>
 
-<h2>AJAX</h2>
+<h2>Recent Tunes</h2>
 
 <button type="button" onclick="makeCorsRequest()">Request data</button>
 
@@ -11,7 +11,7 @@
 
 <script>
 function loadDoc() {
-var requri = 'https://dronin-autotown.appspot.com/api/recentTunes';
+var requri = 'http://dronin-autotown.appspot.com/api/recentTunes';
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
