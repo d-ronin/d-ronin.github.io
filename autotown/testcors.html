@@ -12,7 +12,7 @@
 
 <script>
 function loadWithProxy() {
-var requri = "https://thingproxy.freeboard.io/fetch/http://dronin-autotown.appspot.com/api/recentTunes";
+var requri = 'https://thingproxy.freeboard.io/fetch/http://dronin-autotown.appspot.com/api/recentTunes';
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
@@ -24,12 +24,12 @@ var requri = "https://thingproxy.freeboard.io/fetch/http://dronin-autotown.appsp
 }
 
 function tryCorsHttp() {
-var requri = "http://dronin-autotown.appspot.com/api/recentTunes";
+var requri = 'http://dronin-autotown.appspot.com/api/recentTunes';
 makeCorsRequest(requri);
 }
 
 function tryCorsHttps() {
-var requri = "https://dronin-autotown.appspot.com/api/recentTunes";
+var requri = 'https://dronin-autotown.appspot.com/api/recentTunes';
 makeCorsRequest(requri);
 }
 
@@ -70,7 +70,7 @@ function makeCorsRequest(url) {
   xhr.onload = function() {
     var text = xhr.responseText;
     var title = getTitle(text);
-    document.getElementById("demo").innerHTML = 'Response from CORS request to ' + url + ': ' + title);
+    document.getElementById("demo").innerHTML = 'Response from CORS request to ' + url + ': ' + title;
   };
 
   xhr.onerror = function() {
