@@ -22,8 +22,8 @@
                             $.getJSON(templateSource[2], function(data) {
                                 freeboard.loadDashboard(data, function() {
 								tuneId = resultSource[2];
-								var ds = {"url":"https://thingproxy.freeboard.io/fetch/http://dronin-autotown.appspot.com/api/tune?tune=" + tuneId};
-								var detailUrl = "http://dronin-autotown.appspot.com/at/tune/"+tuneId;
+								var ds = {"url":"https://dronin-autotown.appspot.com/api/tune?tune=" + tuneId};
+								var detailUrl = "https://dronin-autotown.appspot.com/at/tune/"+tuneId;
 								var link = document.getElementById("detailLink");
 								link.setAttribute("href",detailUrl);
 								freeboard.setDatasourceSettings("autotown", ds); 								

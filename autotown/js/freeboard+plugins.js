@@ -3064,7 +3064,8 @@ $.extend(freeboard, jQuery.eventEmitter);
 			var requestURL = currentSettings.url;
 
 			if (errorStage == 2 && currentSettings.use_thingproxy) {
-				requestURL = (location.protocol == "https:" ? "https:" : "http:") + "//thingproxy.freeboard.io/fetch/" + encodeURI(currentSettings.url);
+				//requestURL = (location.protocol == "https:" ? "https:" : "http:") + "//" + encodeURI(currentSettings.url);
+				requestURL = (location.protocol == "https:" ? "https:" : "http:") + encodeURI(currentSettings.url);
 			}
 
 			var body = currentSettings.body;
