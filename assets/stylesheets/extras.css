@@ -1,4 +1,6 @@
 /* Extra css classes not included in main.css */
+
+/* Classes for the home page feature boxes */
 div.layout--feature-list div.panel h2 {
     height: 6rem;
     line-height: 6rem;
@@ -20,3 +22,10 @@ div.layout--feature-list div.panel p {
 div.layout--feature-list div.panel {
     min-height:255px
 }
+/* END classes for the home page feature boxes */
+
+/* Classes for the autotunestats page */
+table.table-autotune {
+    width: 100%
+} 
+/* END classes for the autotunestats page */
