@@ -1,0 +1,22 @@
+/* Extra css classes not included in main.css */
+div.layout--feature-list div.panel h2 {
+    height: 6rem;
+    line-height: 6rem;
+}
+div.layout--feature-list div.panel i.large {
+    margin:0 1rem 0 0.625rem;
+}
+
+div.layout--feature-list div.panel img.match-fi-large {
+    margin: 0 1rem 0 0.625rem;
+    float: left;
+    padding: 1rem 0;    
+}
+
+div.layout--feature-list div.panel p {
+    padding-left: 0.625rem;
+}
+
+div.layout--feature-list div.panel {
+    min-height:255px
+}
