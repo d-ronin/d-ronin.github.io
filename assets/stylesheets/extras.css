@@ -1,6 +1,6 @@
 /* Extra css classes not included in main.css */
 
-/* Classes for the home page feature boxes */
+/* Classes for the home page boxes */
 div.layout--feature-list div.panel h2 {
     height: 6rem;
     line-height: 6rem;
@@ -22,10 +22,52 @@ div.layout--feature-list div.panel p {
 div.layout--feature-list div.panel {
     min-height:255px
 }
-/* END classes for the home page feature boxes */
 
-/* Classes for the autotunestats page */
+div.layout-section.home-title {
+    margin: 0.5rem 0;
+    padding: 1rem 0 0.5rem 0;
+}
+.no-padding {
+    padding: 0 !important;
+}
+.no-margin {
+    margin: 0 !important;
+}
+
+.m-header p.sub {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    text-shadow: none;
+    padding-bottom: 0.9375rem;
+}
+
 table.table-autotune {
-    width: 100%
+    width: 100%;
+    margin-bottom: 1.25rem;
 } 
-/* END classes for the autotunestats page */
+
+table.table-autotune tbody tr td:nth-child(5),table.table-autotune thead tr th:nth-child(5) {
+    text-align: right;
+}
+table.table-autotune tbody tr td:nth-child(4),table.table-autotune thead tr th:nth-child(4) {
+    text-align: center;
+}
+table.table-autotune tbody tr td:nth-child(4) i {
+    vertical-align:middle;
+}
+table.table-autotune tbody tr td:nth-child(2),table.table-autotune thead tr th:nth-child(2) {
+    text-align: right;
+}
+table.table-autotune tbody tr td:nth-child(3){
+    text-transform: capitalize;
+}
+
+
+
+table.table-autotune tbody tr:hover {
+    background-color: #CECECE;
+}
+
+table.table-autotune tbody tr {
+    cursor: pointer;
+}
