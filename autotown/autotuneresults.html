@@ -1,158 +1,222 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Autotunes</title>
-	<meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="viewport" content = "width = device-width, initial-scale = 1, user-scalable = no" />
-	<!-- Add jQuery library -->
-	<script type="text/javascript" src="./js/thirdparty/jquery-1.10.1.min.js"></script>
-    <!-- Add fancyBox -->
-	<link rel="stylesheet" href="./css/thirdparty/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
-	    <link href="css/freeboard.min.css" rel="stylesheet" />
-    <script src="js/freeboard.thirdparty.js"></script>
-	<script type="text/javascript" src="./js/thirdparty/jquery.fancybox.pack.js?v=2.1.5"></script>
-	<script type="text/javascript">
-		$('iframe#fancybox-frame').load(function() {
-		  alert("the iframe has been loaded");
-		});
+<html class="no-js" lang="en">
+  <head prefix="og: http://ogp.me/ns# dc: http://purl.org/dc/terms/">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>dRonin - Autotune</title>
+    <meta content="dRonin is an autopilot/flight controller firmware for controllers in the OpenPilot Tau Labs family. It's aimed at a variety of use cases: acro, racing, autonomous flight, and vehicle research for aerial vehicles such as quadcopters, hexacopters, octocopters and other multirotors, helicopters and rc aircraft" name="description" />
+    <meta content="index,follow" name="robots" />
+    <meta content="yes" name="mobile-web-app-capable" />
+    <meta content="dRonin-boilerplate" name="application-name" />
+    <link href="http://d-ronin.github.io/icons/chrome-touch-icon-192x192.png" rel="icon" sizes="192x192" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="dRonin-boilerplate" name="apple-mobile-web-app-title" />
+    <link href="http://d-ronin.github.io/icons/apple-touch-icon.png" rel="apple-touch-icon" />
+    <meta content="http://d-ronin.github.io/icons/ms-touch-icon-144x144-precomposed.png" name="msapplication-TileImage" />
+    
+    <meta content="#607D8B" name="msapplication-TileColor" />
+    <meta content="#607D8B" name="theme-color" />
+    
+    <link href="http://d-ronin.github.io/icons/favicon-196x196.png" rel="icon" sizes="196x196" type="image/png" />
+    <link href="http://d-ronin.github.io/icons/favicon-160x160.png" rel="icon" sizes="160x160" type="image/png" />
+    <link href="http://d-ronin.github.io/icons/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png" />
+    <link href="http://d-ronin.github.io/icons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="http://d-ronin.github.io/icons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
 	
-		$(document).ready(function() {
-			$('.fancybox').fancybox();
-		});
-	</script>
-    <script type="text/javascript">
-        head.js("js/freeboard+plugins.js",
-                // *** Load more plugins here ***
-				"plugins/freeboard/widget.tables.js",
-                function(){
-                    $(function()
-                    { //DOM Ready
-                        freeboard.initialize(false);
-                        var templateSource = "templates/recentTunes.json"; //window.location.hash.match(/(&|#)template=([^&]+)/);
-						var resultSource = window.location.hash.match(/(&|#)tune=([^&]+)/);
-                        if (templateSource !== null) {
-                            $.getJSON(templateSource, function(data) {
-                                freeboard.loadDashboard(data, function() {
-								//var ds = {"url":"https://thingproxy.freeboard.io/fetch/http://dronin-autotown.appspot.com/api/recentTunes"};
-								var ds = {"url":"https://dronin-autotown.appspot.com/api/recentTunes"};
-								freeboard.setDatasourceSettings("recentTunes", ds); 								
-                                });
-                            });
-                        }
-                    });
-                });				
-    </script>	
-	<script>
-	function showTune(id) { 
-		$.fancybox.open({
-					href : id,
-					type : 'iframe',
-					padding : 5,
-					//onUpdate : function(){
-						//started(this);
-					//}
-				});
-	}
-	
-	function started(obj) {
-		//if (obj.content[0].contentDocument){
-		//obj.skin[0].style.background = "#272727";
-		//return;
-		//}
-		//obj.skin[0].style.background = "lightgray";
-		//return;
+	<!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono:400|Lato:300,400,700" rel="stylesheet" type="text/css" />
+    
+    <!-- Foundation styles -->
+    <link href="https://cdn.jsdelivr.net/foundation/6.1.2/foundation.min.css" rel="stylesheet" type="text/css"/>
+    
+    <!-- Remodal styles -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.0.6/remodal.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.0.6/remodal-default-theme.min.css" rel="stylesheet" type="text/css"/>
+    
+    <!-- style overrides -->
+    <link href="../assets/stylesheets/main.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/stylesheets/extras.css" rel="stylesheet" type="text/css" />
+    
+    <!-- styling for jquery datatables -->
+    <link href="https://cdn.datatables.net/1.10.11/css/dataTables.foundation.min.css" rel="stylesheet" type="text/css"/>
+    
+    <!-- nifty country fags sprite -->
+    <link href="//cloud.github.com/downloads/lafeber/world-flags-sprite/flags32.css" rel="stylesheet" type="text/css"/>
+    
+    <!-- modernizr, jquery, and foundation -->
+	<script src="../assets/javascripts/modernizr-6e6719c6.js" type="text/javascript" defer="defer"></script>    
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>    
+    <script src="https://cdn.jsdelivr.net/foundation/6.1.2/foundation.min.js"></script>
+    
+    <!-- Remodal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.0.6/remodal.min.js"></script>
+                
+    <!-- Foundation DataTables -->
+    <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>    
+    <script src="https://cdn.datatables.net/1.10.11/js/dataTables.foundation.min.js"></script>
 
-	}
-	</script>	
-	<style type="text/css">
-		.fancybox-custom .fancybox-skin {
-			box-shadow: 0 0 2px #222;
-		}
-		.fancybox-skin {
-		position: relative;
-		<!-- background: #272727; -->
-		background: "lightgray";
-		color: #444;
-		text-shadow: none;
-		-webkit-border-radius: 4px;
-		   -moz-border-radius: 4px;
-				border-radius: 4px;
-		}
-		td{
-			cursor:pointer;
-		}
-		.list-table{
-		width:100%; 
-		border-collapse:collapse; 
-		}
-		.list-table td{ 
-			padding:7px; border:#272727 1px solid;
-		}
-		/* Define the default color for all the table rows */
-		.list-table tr{
-			background: #272727;
-		}
-		/* Define the hover highlight color for the table row */
-		.list-table tr:hover {
-			  background-color: #d97600;
-			  color: #000000;
-		}
-		#title-header {
-			width: 700px ;
-			margin-left: auto ;
-			margin-right: auto ;
-			position: relative;
-			z-index: 50;
-			padding: 32px;
-			padding-bottom: 0px;
-		}		
-	</style>
+    <!-- Moment JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+	
 	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+      $(document).foundation();
+      
+      $(document).ready(function() {
+                    
+          // pull in the autotune data
+          var autotuneAPI = "https://thingproxy.freeboard.io/fetch/http://dronin-autotown.appspot.com/api/recentTunes";
+          $.getJSON(autotuneAPI, function(results) {
+              
+              for ( var i=0; i < results.length; i++ ) {                  
+                var row = "<tr class='hover' data-key='"+results[i].Key+"'>";
+                row += "<td>"+results[i].Board+"</td>";
+                
+                var tau = results[i].Tau * 1000;
+                row += "<td>"+tau.toFixed(2)+"</td>";
+                row += "<td>"+results[i].City+"</td>";
+                row += "<td class='f32 country'><i class='flag "+results[i].Country.toLowerCase()+"'></i> "+results[i].Country+"</td>";
+                
+                var ts = moment(results[i].Timestamp);
+                row += "<td>"+ts.format("MMM D, YYYY")+"</td>";
+                row += "</tr>";
+                
+                $("table.table-autotune tbody").append(row);
+                            
+              }
+              
+            // configure the autotune data table as a DataTable
+            $("table.table-autotune").DataTable({
+                lengthChange: false,
+                searching: false,
+                order: [4,'desc']
+
+            });              
+                            
+          });
+          
+          
+        // click handler for pulling in more autotune details
+        $("table.table-autotune tbody").on("click", "tr", function() {
+           var key = $(this).attr("data-key");
+           
+           var autotuneDetailAPI = "https://thingproxy.freeboard.io/fetch/http://dronin-autotown.appspot.com/api/tune";
+           autotuneDetailAPI += "?tune="+key;
+           $.getJSON(autotuneDetailAPI, function(results) {
+
+               var firmware = results.Orig.vehicle.firmware.board;
+               var firmwareTag = results.Orig.vehicle.firmware.tag;
+               
+               var weight = results.Orig.vehicle.weight ? results.Orig.vehicle.weight+"g" : "No data";
+               var type = results.Orig.vehicle.type ? results.Orig.vehicle.type : "No data";
+               var size = results.Orig.vehicle.size ? results.Orig.vehicle.size+"mm" : "No data";
+               var batt = results.Orig.vehicle.batteryCells ? results.Orig.vehicle.batteryCells+"S" : "No data";
+               var motor = results.Orig.vehicle.motor ? results.Orig.vehicle.motor : "No data";
+               var esc = results.Orig.vehicle.esc ? results.Orig.vehicle.esc : "No data";
+               
+               var detailRow = "<tr>";
+               detailRow += "<td>"+type+" "+size+"</td>";
+               detailRow += "<td>"+batt+"</td>";
+               detailRow += "<td>"+weight+"</td>";
+               detailRow += "<td>"+motor+"</td>";
+               detailRow += "<td>"+esc+"</td>";
+               detailRow += "</tr>";
+               
+               $("[data-remodal-id=autotune-modal] h2").html(firmware+" <small>"+firmwareTag+"</small>");
+               
+               var observations = results.Orig.userObservations ? results.Orig.userObservations : "None"
+               $("[data-remodal-id=autotune-modal] p.observations").text(observations);
+               
+               var tau = results.Tau * 1000;
+               $("[data-remodal-id=autotune-modal] p.tau").text(tau.toFixed(2));
+               
+               $("[data-remodal-id=autotune-modal] table tbody").append(detailRow);
+               $("[data-remodal-id=autotune-modal] a.gory-details").attr("href","https://dronin-autotown.appspot.com/at/tune/"+key);
+               $("[data-remodal-id=autotune-modal]").remodal().open();
+           
+           });
+
+        });          
+        
+        // event listener for clearing out data when the autotune detail modal closes
+        $(document).on('closed', '.remodal', function (e) {
+            $("[data-remodal-id=autotune-modal] h2").html("");               
+            $("[data-remodal-id=autotune-modal] table tbody").empty();
+            $("[data-remodal-id=autotune-modal] a.gory-details").attr("href","#");
+        });
+
+      });   
+	</script>
+  </head>
+  <body class="index">
+    <header class="m-header" id="header-top" role="banner"><a id="js-menu--button" class="m-header--menu" href="#header-top">
+        <span>Menu</span></a>
+		<img class="img-centered" src="../assets/images/logos/logo_final_full.png" alt="dRonin" height="196" width="480">
+      <nav class="m-header--nav js-header--list is-away">
+        <a href="/index.html">Home</a><a href="https://github.com/d-ronin/dRonin/wiki">About</a><a href="/autotown/autotuneresults.html"><i class="fi-graph-bar"></i>AutoTune Results</a><a target="_blank" href="http://kiwiirc.com/client/irc.kiwiirc.com/dronin/">IRC #dRonin</a><a target="_blank" href="https://github.com/d-ronin/dRonin"><i class="fi-social-github"></i>GitHub </a><a class="l-download" href="/releases/releases.html"><i class="fi-download"></i>Download </a>
+      </nav>
+    </header>
+ 
+     <div class="small-12 columns">
+         <div class="layout-section no-padding no-margin">
+             <div class="text-center">
+                <h2>User contributed Autotune statistics</h2>
+                <p>With dRonin's advanced Autotuning a well tuned machine is easy, check out the details <a href="https://github.com/d-ronin/dRonin/wiki/Configuring-your-new-board-for-basic-flight">here</a>.
+              </div>
+              <table class="list-table table-autotune " style="width:100%">
+                  <thead>
+                    <tr>
+                        <th>Board</th>
+                        <th>Tau</th>
+                        <th>City</th>
+                        <th>Country</th>
+                        <th>Submitted</th>
+                    </tr>    
+                  </thead>
+                  <tbody>
+                  </tbody>    
+              </table>
+          </div>
+      </div>
+        
+    </div> <!-- end row -->
+
+<div class="remodal" data-remodal-id="autotune-modal">
+  <button data-remodal-action="close" class="remodal-close"></button>
+  <h2></h2>
+  <table width="100%">
+      <thead>
+          <tr>
+              <th>Vehicle</th>
+              <th>Battery</th>
+              <th>AUW</th>
+              <th>Motor</th>
+              <th>ESC</th>
+          </tr>
+      </thead>
+      <tbody>
+      </tbody>
+  </table>
+  <div class="text-left">
+    <label>Tau</label>
+    <p class="tau"></p>
+    <label>User Observations</label>
+    <p class="observations"></p>
+  </div>
+  <div class="text-center">
+      <a class="gory-details" href="#" target="_blank">View Detailed Report</a>
+  </div>
+</div>
+
+    <script>
+    	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
 	  ga('create', 'UA-71912055-1', 'auto');
 	  ga('send', 'pageview');
-	</script>		
-</head>
-<body>
-	<header id="title-header" > 
-	<a href="../index.html">
-	<img  src="img/atHeader.png" alt="dRonin Autotune" height="88" width="686">
-	</a> 
-	</header>
-	<div id="board-content">
-		<img id="dash-logo" data-bind="attr:{src: header_image}, visible:header_image()">
-		<div class="gridster responsive-column-width">
-			<ul data-bind="grid: true">
-			</ul>
-		</div>
-	</div>
-	<header id="main-header" >
-	</header>
-	<div style="display:hidden">
-		<ul data-bind="template: { name: 'pane-template', foreach: panes}">
-		</ul>
-	</div>
-	<script type="text/html" id="pane-template">
-		<li data-bind="pane: true">
-			<header>
-				<h1 data-bind="text: title"></h1>
-			</header>
-			<section data-bind="foreach: widgets">
-				<div class="sub-section" data-bind="css: 'sub-section-height-' + height()">
-					<div class="widget" data-bind="widget: true, css:{fillsize:fillSize}"></div>
-					<div class="sub-section-tools">
-						<ul class="board-toolbar">
-						</ul>
-					</div>
-				</div>
-			</section>
-		</li>
-	</script>
-</body>
+   </script>
+  </body>
 </html>
