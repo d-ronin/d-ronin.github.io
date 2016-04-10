@@ -11376,6 +11376,9 @@ code.highlight {
 .index .l-download {
     outline: 2px solid #FFFFFF
 }
+.index .l-documentation {
+    outline: 2px solid #FFFFFF
+}
 a.m-header--menu {
     padding: 0.625rem 1.25rem;
     margin-bottom: 0.625rem;
