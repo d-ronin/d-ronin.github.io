@@ -66,7 +66,7 @@
       $(document).ready(function() {
                     
           // pull in the autotune data
-          var autotuneAPI = "https://thingproxy.freeboard.io/fetch/http://dronin-autotown.appspot.com/api/recentTunes";
+          var autotuneAPI = "https://dronin-autotown.appspot.com/api/recentTunes";
           $.getJSON(autotuneAPI, function(results) {
               
               for ( var i=0; i < results.length; i++ ) {                  
@@ -101,7 +101,7 @@
         $("table.table-autotune tbody").on("click", "tr", function() {
            var key = $(this).attr("data-key");
            
-           var autotuneDetailAPI = "https://thingproxy.freeboard.io/fetch/http://dronin-autotown.appspot.com/api/tune";
+           var autotuneDetailAPI = "https://dronin-autotown.appspot.com/api/tune";
            autotuneDetailAPI += "?tune="+key;
            $.getJSON(autotuneDetailAPI, function(results) {
 
