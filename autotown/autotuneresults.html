@@ -127,6 +127,13 @@
                
                var observations = results.Orig.userObservations ? results.Orig.userObservations : "None"
                $("[data-remodal-id=autotune-modal] p.observations").text(observations);
+
+               $("[data-remodal-id=autotune-modal] ul.warnings").hide();
+               $("[data-remodal-id=autotune-modal] ul.warnings").empty();
+               if (results.Orig.dataVersion >= 3 && !results.Orig.tuning.computed.converged) {
+                   $("[data-remodal-id=autotune-modal] ul.warnings").append("<li>Tune <strong>failed</strong> to converge!</li>");
+                   $("[data-remodal-id=autotune-modal] ul.warnings").show();
+               }
                
                var tau = results.Tau * 1000;
                $("[data-remodal-id=autotune-modal] p.tau").text(tau.toFixed(2));
@@ -199,6 +206,7 @@
       </tbody>
   </table>
   <div class="text-left">
+    <ul class="warnings"></ul>
     <label>Tau</label>
     <p class="tau"></p>
     <label>User Observations</label>
