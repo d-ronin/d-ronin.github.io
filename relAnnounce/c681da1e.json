@@ -1,0 +1,4 @@
+{ 
+"thresh" : 1000, 
+"text" : "<h1>Quixote Released!</h1><p>Get it <a href=\"http://dronin.org/releases/releases.html\">here</a>.</p><p>Very little has changed since the preview release; but only this final build will be officially supported.</p>"
+}
