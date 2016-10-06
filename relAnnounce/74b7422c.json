@@ -1,4 +1,4 @@
 
-"thresh" : 500, 
+"thresh" : 1000, 
 "text" : "<h1>New 2016-10-04 Release</h1><p>Get the latest version of dRonin <a href=\"http://dronin.org/releases/releases.html\">here</a>.</p><br/><p>Many bugfixes are included, as well as new flight capabilities and features.</p>"
 }
