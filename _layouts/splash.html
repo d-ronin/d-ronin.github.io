@@ -20,4 +20,9 @@ layout: default
     </section>
   </article>
   {% if page.share %}{% include social-share.html %}{% endif %}
+	{% for post in paginator.posts %}
+	  {% include archive-single.html %}
+	{% endfor %}
+
+	{% include paginator.html %}
 </div>

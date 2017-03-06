@@ -206,23 +206,21 @@
   padding-top: 1em;
   border-top: 1px solid $border-color;
 
-  @include breakpoint(max-width $small) {
-    .btn span {
-      border: 0;
-      clip: rect(0 0 0 0);
-      height: 1px;
-      margin: -1px;
-      overflow: hidden;
-      padding: 0;
-      position: absolute;
-      width: 1px;
-    }
+  .btn span {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
   }
 }
 
 .page__share-title {
-  margin-bottom: 10px;
-  font-size: $type-size-6;
+  margin-bottom: 6px;
+  font-size: $type-size-7;
   text-transform: uppercase;
 }
 

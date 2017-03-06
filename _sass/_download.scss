@@ -1,0 +1,30 @@
+#release_assets
+{
+margin: 0.5em;
+padding: 0.5em 0.5em;
+text-align: center;
+margin: auto;
+line-height: 300%;
+}
+
+#release_assets li { display: inline; list-style: none; padding: 0.3em 0.3em; }
+
+#release_assets li:after {
+	content: " ";
+}
+
+#release_assets li a {
+       	padding: 0.3em 0.3em;
+	border-style: solid;
+	border-width: 1px;
+	white-space: nowrap;
+	color:inherit; 
+	border-radius: $border-radius;
+}
+
+#release_assets li a:hover
+{
+	color: #fff;
+	background-color: #412300;
+}
+

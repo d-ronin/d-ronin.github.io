@@ -2,9 +2,11 @@
 main:
   - title: "Documentation"
     url: https://dronin.readme.io
+  - title: "Download"
+    url: /download
   - title: "Forum"
     url: https://forum.dronin.org
-  - title: "Github"
+  - title: "GitHub"
     url: https://github.com/d-ronin/dRonin/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
