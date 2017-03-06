@@ -1,7 +1,11 @@
 # main links
 main:
-  - title: "Quick-Start Guide"
-    url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
+  - title: "Documentation"
+    url: https://dronin.readme.io
+  - title: "Forum"
+    url: https://forum.dronin.org
+  - title: "Github"
+    url: https://github.com/d-ronin/dRonin/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
