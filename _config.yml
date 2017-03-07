@@ -60,7 +60,7 @@ facebook:
   username               : flyDronin
   app_id                 :
   publisher              :
-og_image                 : # Open Graph/Twitter default site image
+og_image                 : /assets/images/dronly.png
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
@@ -71,9 +71,9 @@ social:
         - https://github.com/d-ronin/dRonin
 # Analytics
 analytics:
-  provider               : false # false (default), "google", "google-universal", "custom"
+  provider               : google # false (default), "google", "google-universal", "custom"
   google:
-    tracking_id          :
+    tracking_id          : UA-71912055-1
 
 
 # Site Author
