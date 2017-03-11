@@ -236,13 +236,19 @@ addl_headers: |
                     <md-toolbar class="md-hue-2" ng-click="showFields = !showFields">
                       <div class="md-toolbar-tools">
                         <md-checkbox ng-checked="exists(obj.name, selectedObjects)" ng-click="toggle(obj.name, selectedObjects); $event.stopPropagation()" aria-label="{{ 'obj' | angular }}"></md-checkbox>
-                        <h2>
+                        <h2 flex="">
                           <span>{{ 'obj.name' | angular }}</span>
                         </h2>
+                        <md-button class="md-icon-button" aria-label="Expand more" ng-if="showFields != true">
+                          <md-icon md-svg-icon="assets/images/ic_expand_more_24px.svg"></md-icon>
+                        </md-button>
+                        <md-button class="md-icon-button" aria-label="Expand less" ng-if="showFields==true">
+                          <md-icon md-svg-icon="assets/images/ic_expand_less_24px.svg"></md-icon>
+                        </md-button>
                       </div>
                     </md-toolbar>
                     <table ng-show="showFields">
-                      <thead><tr><td>Field</td><td>Value</td></tr></thead>
+                      <thead><tr><td><strong>Field</strong></td><td><strong>Value</strong></td></tr></thead>
                       <tbody>
                         <tr ng-repeat="(field, value) in obj.fields">
                           <td>{{ 'field' | angular }}</td>
