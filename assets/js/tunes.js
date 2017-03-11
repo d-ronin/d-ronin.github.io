@@ -106,6 +106,10 @@ dronin.controller('AutotuneDialogController', function($scope, $http, $httpParam
         $mdDialog.hide();
     }
 
+    $scope.isArray = function(v) {
+        return Array.isArray(v);
+    }
+
     $scope.availableObjects = [];
     $scope.selectedObjects = [];
 
@@ -155,13 +159,6 @@ dronin.controller('AutotuneDialogController', function($scope, $http, $httpParam
     $http.get(autotown_api(['tune?' + $httpParamSerializer({tune: tune})])).
         then(function successCallback(response) {
             $scope.tune = response.data;
-
-            if ($scope.tune.Tau < 7e-3)
-                $scope.tauBarType = 'danger';
-            else if ($scope.tune.Tau < 10e-3 || $scope.tune.Tau > 40e-3)
-                $scope.tauBarType = 'warning';
-            else
-                $scope.tauBarType = 'success';
 
             var objs = [];
             angular.forEach($scope.tune.Orig.rawSettings, function(value, key) {

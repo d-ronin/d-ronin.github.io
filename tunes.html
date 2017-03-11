@@ -229,15 +229,32 @@ addl_headers: |
                   <legend>Available UAVObjects</legend>
                   <div>
                     <md-checkbox aria-label="Select All" ng-checked="isChecked()" md-indeterminate="isIndeterminate()" ng-click="toggleAll()">
-                      <strong><span ng-if="isChecked()">Un-</span>Select All</strong>
+                      <strong>Select All</strong>
                     </md-checkbox>
                   </div>
-                  <div layout-wrap="" layout-gt-sm="row">
-                    <div flex-gt-sm="50" ng-repeat="obj in availableObjects">
-                      <md-checkbox ng-checked="exists(obj, selectedObjects)" ng-click="toggle(obj, selectedObjects)" aria-label="{{ 'obj' | angular }}">
-                        {{ 'obj' | angular }}
-                      </md-checkbox>
-                    </div>
+                  <div ng-repeat="(name, obj) in tune.Orig.rawSettings" style="margin-bottom: 5px">
+                    <md-toolbar class="md-hue-2" ng-click="showFields = !showFields">
+                      <div class="md-toolbar-tools">
+                        <md-checkbox ng-checked="exists(obj.name, selectedObjects)" ng-click="toggle(obj.name, selectedObjects); $event.stopPropagation()" aria-label="{{ 'obj' | angular }}"></md-checkbox>
+                        <h2>
+                          <span>{{ 'obj.name' | angular }}</span>
+                        </h2>
+                      </div>
+                    </md-toolbar>
+                    <table ng-show="showFields">
+                      <thead><tr><td>Field</td><td>Value</td></tr></thead>
+                      <tbody>
+                        <tr ng-repeat="(field, value) in obj.fields">
+                          <td>{{ 'field' | angular }}</td>
+                          <td>
+                            <ul ng-if="isArray(value)">
+                              <li ng-repeat="v in value track by $index">{{ '$index + 1' | angular }}: {{ 'v' | angular }}</li>
+                            </ul>
+                            <span ng-if="isArray(value) != true">{{ 'value' | angular}}</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </fieldset>
               </md-content>
@@ -245,7 +262,7 @@ addl_headers: |
                 <span flex></span>
                 <md-button class="md-raised md-primary" ng-click="$ctrl.downloadRawObjects()">
                   <md-icon md-svg-src="assets/images/ic_file_download_24px.svg"></md-icon>
-                  Download UAVObjects
+                  Download Selected UAVObjects
                 </md-button>
               </md-dialog-actions>
             </md-tab>
