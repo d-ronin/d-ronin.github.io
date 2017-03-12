@@ -79,7 +79,7 @@ var dronin = angular.module('dronin', ['ngMaterial', 'ngSanitize'])
             .accentPalette('blue');
     });
 
-dronin.controller('AutotuneCtrl', function($scope, $http, $mdDialog) {
+dronin.controller('AutotuneCtrl', function($scope, $http, $location, $mdDialog) {
     var $ctrl = this;
 
     $ctrl.openTune = function(tune) {
@@ -97,6 +97,9 @@ dronin.controller('AutotuneCtrl', function($scope, $http, $mdDialog) {
         });
     };
 
+    if ('key' in $location.search())
+        $ctrl.openTune($location.search()['key']);
+
     $http.get(autotown_api(['recentTunes'])).
         then(function successCallback(response) {
             $scope.tunes = response.data;
@@ -106,11 +109,12 @@ dronin.controller('AutotuneCtrl', function($scope, $http, $mdDialog) {
     );
 });
 
-dronin.controller('AutotuneDialogController', function($scope, $http, $httpParamSerializer, $mdDialog, tune, $window) {
+dronin.controller('AutotuneDialogController', function($scope, $http, $httpParamSerializer, $location, $mdDialog, tune, $window) {
     var $ctrl = this;
 
     $scope.closeDialog = function() {
         $mdDialog.hide();
+        $location.search('key', null);
     }
 
     $scope.isArray = function(v) {
@@ -166,6 +170,8 @@ dronin.controller('AutotuneDialogController', function($scope, $http, $httpParam
     $ctrl.googleMaps = function(lat, lon) {
         $window.location.href = 'https://www.google.com/maps/@' + lat + ',' + lon + ',12z';
     }
+
+    $location.search('key', tune);
 
     $http.get(autotown_api(['tune?' + $httpParamSerializer({tune: tune})])).
         then(function successCallback(response) {
