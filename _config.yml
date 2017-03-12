@@ -185,7 +185,6 @@ gems:
   - jekyll-feed
   - jekyll-redirect-from
   - jemoji
-  - jekyll-angular
 
 # mimic GitHub Pages with --safe
 whitelist:
@@ -195,7 +194,6 @@ whitelist:
   - jekyll-feed
   - jekyll-redirect-from
   - jemoji
-  - jekyll-angular
 
 
 # Archives

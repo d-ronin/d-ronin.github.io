@@ -2,6 +2,7 @@
 title: "Recent Autotunes"
 layout: single
 permalink: /tunes
+redirect_from: /autotown/autotuneresults.html
 share: true
 header:
   overlay_color: "#824700"
@@ -30,15 +31,15 @@ addl_headers: |
       </thead>
       <tbody>
           <tr ng-repeat="t in tunes | limitTo:25" ng-click="$ctrl.openTune(t.Key)">
-              <td>{{ 't.Board' | angular }}</td>
-              <td>{{ 't.Tau * 1000 | number : 1' | angular }} ms</td>
-              <td>{{ 't.City | titleCase' | angular }}</td>
-              <td><span class="flag flag-{{ 't.Country | lowercase' | angular }}"></span>{{ 't.Country | uppercase' | angular }}</td>
-              <td>{{ 't.Timestamp | relDate' | angular }}</td>
+              <td ng-bind="t.Board"></td>
+              <td><span ng-bind="t.Tau * 1000 | number : 1"></span> ms</td>
+              <td ng-bind="t.City | titleCase"></td>
+              <td><span class="flag" ng-class="'flag-' + t.Country.toLowerCase()"></span><span ng-bind="t.Country | uppercase"></span></td>
+              <td ng-bind="t.Timestamp | relDate"></td>
           </tr>
       </tbody>
   </table>
-  <p ng-if="error">{{ 'error' | angular }}</p>
+  <p ng-if="error" ng-bind="error"></p>
 
   <script type="text/ng-template" id="autotuneDialog.tmpl.html">
     <md-dialog aria-label="Tune details">
@@ -61,7 +62,7 @@ addl_headers: |
                   <md-list-item class="md-2-line">
                     <img src="/assets/images/ic_access_time_24px.svg" class="md-avatar">
                     <div class="md-list-item-text">
-                      <h3>{{ 'tune.Timestamp | relDate' | angular }}</h3>
+                      <h3 ng-bind="tune.Timestamp | relDate"></h3>
                       <p>When</p>
                     </div>
                   </md-list-item>
@@ -69,7 +70,9 @@ addl_headers: |
                     <img src="/assets/images/ic_location_on_24px.svg" class="md-avatar">
                     <div class="md-list-item-text">
                       <h3>
-                        <a href="https://www.google.com/maps/@{{ 'tune.Lat' | angular }},{{ 'tune.Lon' | angular }},12z">{{ 'tune.City | titleCase' | angular }}, {{ 'tune.Region | uppercase' | angular }}, {{ 'tune.Country | uppercase' | angular }}</a>
+                        <a ng-href="https://www.google.com/maps/@{{ tune.Lat }},{{ tune.Lon }},12z">
+                          <span ng-bind="tune.City | titleCase"></span>, <span ng-bind="tune.Region | uppercase"></span>, <span ng-bind="tune.Country | uppercase"></span>
+                        </a>
                       </h3>
                       <p>Where</p>
                     </div>
@@ -77,14 +80,14 @@ addl_headers: |
                   <md-list-item class="md-2-line">
                     <img src="/assets/images/ic_memory_24px.svg" class="md-avatar">
                     <div class="md-list-item-text">
-                      <h3>{{ 'tune.Board' | angular }}</h3>
+                      <h3 ng-bind="tune.Board"></h3>
                       <p>Flight Controller</p>
                     </div>
                   </md-list-item>
                   <md-list-item class="md-2-line">
                     <img src="/assets/images/ic_timer_24px.svg" class="md-avatar">
                     <div class="md-list-item-text">
-                      <h3>{{ 'tune.Tau * 1000 | number : 1' | angular }} ms</h3>
+                      <h3><span ng-bind="tune.Tau * 1000 | number : 1"></span> ms</h3>
                       <p>Response Time (Tau)</p>
                     </div>
                   </md-list-item>
@@ -100,10 +103,10 @@ addl_headers: |
                   <tbody>
                     <!-- TODO: sort in RPY order -->
                     <tr ng-repeat="(name, meas) in tune.Orig.identification" ng-if="meas.gain">
-                      <td>{{ 'name | titleCase' | angular }}</td>
-                      <td>{{ 'meas.gain | number : 2' | angular }}</td>
-                      <td>{{ 'meas.bias | number : 2' | angular  }}</td>
-                      <td>{{ 'meas.noise | number : 1' | angular  }}</td>
+                      <td ng-bind="name | titleCase"></td>
+                      <td ng-bind="meas.gain | number : 2"></td>
+                      <td ng-bind="meas.bias | number : 2"></td>
+                      <td ng-bind="meas.noise | number : 1"></td>
                     </tr>
                   </tbody>
                 </table>
@@ -116,13 +119,13 @@ addl_headers: |
                   <md-list layout="row">
                     <md-list-item class="md-2-line">
                       <div class="md-list-item-text">
-                        <h3>{{ 'tune.Orig.tuning.parameters.damping | number: 2' | angular }}</h3>
+                        <h3 ng-bind="tune.Orig.tuning.parameters.damping | number: 2"></h3>
                         <p>Damping</p>
                       </div>
                     </md-list-item>
                     <md-list-item class="md-2-line">
                       <div class="md-list-item-text">
-                        <h3>{{ 'tune.Orig.tuning.parameters.noiseSensitivity | number: 3' | angular }}</h3>
+                        <h3 ng-bind="tune.Orig.tuning.parameters.noiseSensitivity | number: 3"></h3>
                         <p>Noise Sensitivity</p>
                       </div>
                     </md-list-item>
@@ -133,13 +136,13 @@ addl_headers: |
                   <md-list layout="row">
                     <md-list-item class="md-2-line">
                       <div class="md-list-item-text">
-                        <h3>{{ 'tune.Orig.tuning.computed.naturalFrequency | number: 1' | angular }} Hz</h3>
+                        <h3><span ng-bind="tune.Orig.tuning.computed.naturalFrequency | number: 1"></span> Hz</h3>
                         <p>Natural Frequency</p>
                       </div>
                     </md-list-item>
                     <md-list-item class="md-2-line">
                       <div class="md-list-item-text">
-                        <h3>{{ 'tune.Orig.tuning.computed.derivativeCutoff | number: 1' | angular }} Hz</h3>
+                        <h3><span ng-bind="tune.Orig.tuning.computed.derivativeCutoff | number: 1"></span> Hz</h3>
                         <p>Derivative Filter Cutoff Frequency</p>
                       </div>
                     </md-list-item>
@@ -153,10 +156,10 @@ addl_headers: |
                     <tbody>
                       <!-- TODO: sort in RPY order -->
                       <tr ng-repeat="(name, meas) in tune.Orig.tuning.computed.gains">
-                        <td>{{ 'name | titleCase' | angular }}</td>
-                        <td>{{ 'meas.kp | number : 5' | angular }}</td>
-                        <td>{{ 'meas.ki | number : 5' | angular  }}</td>
-                        <td>{{ 'meas.kd | number : 7' | angular  }}</td>
+                        <td ng-bind="name | titleCase"></td>
+                        <td ng-bind="meas.kp | number : 5"></td>
+                        <td ng-bind="meas.ki | number : 5"></td>
+                        <td ng-bind="meas.kd | number : 7"></td>
                       </tr>
                     </tbody>
                   </table>
@@ -168,62 +171,62 @@ addl_headers: |
                 <md-list>
                   <md-list-item class="md-2-line">
                     <div class="md-list-item-text">
-                      <h3>{{ 'tune.Orig.vehicle.type' | angular }}</h3>
+                      <h3 ng-bind="tune.Orig.vehicle.type"></h3>
                       <p>Type</p>
                     </div>
                   </md-list-item>
                   <md-list-item class="md-2-line">
                     <div class="md-list-item-text">
-                      <h3>{{ 'tune.Orig.vehicle.size' | angular }}</h3>
+                      <h3 ng-bind="tune.Orig.vehicle.size"></h3>
                       <p>Size</p>
                     </div>
                   </md-list-item>
                   <md-list-item class="md-2-line">
                     <div class="md-list-item-text">
-                      <h3>{{ 'tune.Orig.vehicle.weight' | angular }} g</h3>
+                      <h3><span ng-bind="tune.Orig.vehicle.weight"></span> g</h3>
                       <p>Weight</p>
                     </div>
                   </md-list-item>
                   <md-list-item class="md-2-line">
                     <div class="md-list-item-text">
-                      <h3>{{ 'tune.Orig.vehicle.firmware.board' | angular }}</h3>
+                      <h3 ng-bind="tune.Orig.vehicle.firmware.board"></h3>
                       <p>Flight Controller</p>
                     </div>
                   </md-list-item>
                   <md-list-item class="md-2-line">
                     <div class="md-list-item-text">
-                      <h3>{{ 'tune.Orig.vehicle.firmware.tag' | angular }}</h3>
+                      <h3 ng-bind="tune.Orig.vehicle.firmware.tag"></h3>
                       <p>dRonin Version</p>
                     </div>
                   </md-list-item>
                   <md-list-item class="md-2-line">
                     <div class="md-list-item-text">
-                      <h3>{{ 'tune.Orig.vehicle.esc' | angular }}</h3>
+                      <h3 ng-bind="tune.Orig.vehicle.esc"></h3>
                       <p>ESC(s)</p>
                     </div>
                   </md-list-item>
                   <md-list-item class="md-2-line">
                     <div class="md-list-item-text">
-                      <h3>{{ 'tune.Orig.vehicle.motor' | angular }}</h3>
+                      <h3 ng-bind="tune.Orig.vehicle.motor"></h3>
                       <p>Motor(s)</p>
                     </div>
                   </md-list-item>
                   <md-list-item class="md-2-line">
                     <div class="md-list-item-text">
-                      <h3>{{ 'tune.Orig.vehicle.props' | angular }}</h3>
+                      <h3 ng-bind="tune.Orig.vehicle.props"></h3>
                       <p>Propeller(s)</p>
                     </div>
                   </md-list-item>
                   <md-list-item class="md-2-line">
                     <div class="md-list-item-text">
-                      <h3>{{ 'tune.Orig.vehicle.batteryCells' | angular }}S</h3>
+                      <h3><span ng-bind="tune.Orig.vehicle.batteryCells"></span>S</h3>
                       <p>Battery</p>
                     </div>
                   </md-list-item>
                 </md-list>
                 <md-list-item class="md-2-line">
                     <div class="md-list-item-text">
-                      <h3>{{ 'tune.Orig.userObservations' | angular }}</h3>
+                      <h3 ng-bind="tune.Orig.userObservations"></h3>
                       <p>User Observations</p>
                     </div>
                   </md-list-item>
@@ -242,9 +245,9 @@ addl_headers: |
                   <div ng-repeat="(name, obj) in tune.Orig.rawSettings" style="margin-bottom: 5px">
                     <md-toolbar class="md-hue-2" ng-click="showFields = !showFields">
                       <div class="md-toolbar-tools">
-                        <md-checkbox ng-checked="exists(obj.name, selectedObjects)" ng-click="toggle(obj.name, selectedObjects); $event.stopPropagation()" aria-label="{{ 'obj' | angular }}"></md-checkbox>
+                        <md-checkbox ng-checked="exists(obj.name, selectedObjects)" ng-click="toggle(obj.name, selectedObjects); $event.stopPropagation()" aria-label="Select object"></md-checkbox>
                         <h2 flex="">
-                          <span>{{ 'obj.name' | angular }}</span>
+                          <span ng-bind="obj.name"></span>
                         </h2>
                         <md-button class="md-icon-button" aria-label="Expand more" ng-if="showFields != true">
                           <md-icon md-svg-icon="assets/images/ic_expand_more_24px.svg"></md-icon>
@@ -258,12 +261,12 @@ addl_headers: |
                       <thead><tr><td><strong>Field</strong></td><td><strong>Value</strong></td></tr></thead>
                       <tbody>
                         <tr ng-repeat="(field, value) in obj.fields">
-                          <td>{{ 'field' | angular }}</td>
+                          <td ng-bind="field"></td>
                           <td>
                             <ul ng-if="isArray(value)">
-                              <li ng-repeat="v in value track by $index">{{ '$index + 1' | angular }}: {{ 'v' | angular }}</li>
+                              <li ng-repeat="v in value track by $index"><span ng-bind="$index + 1"></span>: <span ng-bind="v"></span></li>
                             </ul>
-                            <span ng-if="isArray(value) != true">{{ 'value' | angular}}</span>
+                            <span ng-if="isArray(value) != true" ng-bind="value"></span>
                           </td>
                         </tr>
                       </tbody>
