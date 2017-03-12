@@ -37,7 +37,7 @@ function generate_uavo(objs) {
     return new XMLSerializer().serializeToString(uav.documentElement);
 }
 
-var dronin = angular.module('dronin', ['ngMaterial'])
+var dronin = angular.module('dronin', ['ngMaterial', 'ngSanitize'])
     .filter('relDate', function() {
         return function(dstr) {
             return moment(dstr).fromNow();
@@ -66,6 +66,13 @@ var dronin = angular.module('dronin', ['ngMaterial'])
             });
         }
     })
+    .filter('simpleFormat', ['$filter', function($filter) {
+        // https://github.com/RStankov/angular-simple-format/blob/1d6f1f6acdac3dd709587eaee5dde361cf890622/lib/angular_simple_format.js
+        var linky = $filter('linky');
+        return function(text) {
+            return linky((text || '') + '').replace(/\&#10;/g, "&#10;<br>");
+        };
+    }])
     .config(function($mdThemingProvider) {
         $mdThemingProvider.theme('default')
             .primaryPalette('blue-grey')
