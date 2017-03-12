@@ -1,11 +1,9 @@
 ---
-title: "Recent Autotunes"
-layout: single
+title: "Autotune"
+layout: splash
 permalink: /tunes
 redirect_from: /autotown/autotuneresults.html
 share: true
-header:
-  overlay_color: "#824700"
 addl_headers: |
   <link rel="stylesheet" href="/assets/css/flags.min.css"></link>
   <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
@@ -16,9 +14,18 @@ addl_headers: |
       cursor: pointer;
     }
   </style>
+header:
+  overlay_filter: rgba(173, 94, 0, 0.735)
+  overlay_image: /assets/images/curvetexture.jpg
+excerpt: "Autotune *measures the flight characteristics of your aircraft*, and then generates PIDs providing ideal, **locked-in** control."
+intro: 
+  - excerpt: 'After initial setup, fly a short autotune flight with dRonin.  When you next connect the controller to your computer, PIDs that account for the delays and mechanical gains of the aircraft are computed and applied.  Tuning has never been simpler.'
+  - excerpt: 'Below are a few of the most recent tunes flown by the dRonin community.'
 ---
+
+{% include feature_row id="intro" type="center"%}
+
 <div ng-app="dronin" ng-controller="AutotuneCtrl as $ctrl">
-  <p>With dRonin's advanced autotuning feature, a well tuned machine is easy. To begin check out the <a href="https://dronin.readme.io/docs/getting-started">getting started guide</a>.</p>
   <table>
       <thead>
           <tr>
