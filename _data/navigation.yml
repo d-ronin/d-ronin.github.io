@@ -8,11 +8,5 @@ main:
     url: https://forum.dronin.org
   - title: "GitHub"
     url: https://github.com/d-ronin/dRonin/
-  # - title: "About"
-  #   url: https://mmistakes.github.io/minimal-mistakes/about/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
+  - title: "Autotune"
+    url: /tunes
