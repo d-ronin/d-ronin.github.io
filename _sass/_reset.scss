@@ -30,6 +30,11 @@ html {
 
 body { margin: 0; }
 
+/* Prevent angular from winning */
+html body {
+  background-color: #ffffff !important;
+}
+
 /* Selected elements */
 
 ::-moz-selection {
