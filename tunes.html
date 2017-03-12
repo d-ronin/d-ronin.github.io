@@ -41,7 +41,7 @@ intro:
               <td ng-bind="t.Board"></td>
               <td><span ng-bind="t.Tau * 1000 | number : 1"></span> ms</td>
               <td ng-bind="t.City | titleCase"></td>
-              <td><span class="flag" ng-class="'flag-' + t.Country.toLowerCase()"></span><span ng-bind="t.Country | uppercase"></span></td>
+              <td><span class="flag" ng-class="'flag-' + t.Country.toLowerCase()"></span> <span ng-bind="t.Country | uppercase"></span></td>
               <td ng-bind="t.Timestamp | relDate"></td>
           </tr>
       </tbody>
