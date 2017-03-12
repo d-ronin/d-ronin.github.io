@@ -80,7 +80,7 @@ intro:
                     <img src="/assets/images/ic_location_on_24px.svg" class="md-avatar">
                     <div class="md-list-item-text">
                       <h3>
-                        <a ng-href="https://www.google.com/maps/@{{ tune.Lat }},{{ tune.Lon }},12z">
+                        <a ng-click="$ctrl.googleMaps(tune.Lat, tune.Lon)">
                           <span ng-bind="tune.City | titleCase"></span>, <span ng-bind="tune.Region | uppercase"></span>, <span ng-bind="tune.Country | uppercase"></span>
                         </a>
                       </h3>

@@ -106,7 +106,7 @@ dronin.controller('AutotuneCtrl', function($scope, $http, $mdDialog) {
     );
 });
 
-dronin.controller('AutotuneDialogController', function($scope, $http, $httpParamSerializer, $mdDialog, tune) {
+dronin.controller('AutotuneDialogController', function($scope, $http, $httpParamSerializer, $mdDialog, tune, $window) {
     var $ctrl = this;
 
     $scope.closeDialog = function() {
@@ -162,6 +162,10 @@ dronin.controller('AutotuneDialogController', function($scope, $http, $httpParam
         }, objs);
         download('user-settings.uav', generate_uavo(objs));
     };
+
+    $ctrl.googleMaps = function(lat, lon) {
+        $window.location.href = 'https://www.google.com/maps/@' + lat + ',' + lon + ',12z';
+    }
 
     $http.get(autotown_api(['tune?' + $httpParamSerializer({tune: tune})])).
         then(function successCallback(response) {
