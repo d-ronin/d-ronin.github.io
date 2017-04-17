@@ -1,0 +1,36 @@
+[class*='callout__'] {
+  margin-left: 0.5em;
+  padding: 0.5em 0.3em 0.5em 1.0em;
+  border-width: 0px 0px 0px 3px;
+  border-style: solid;
+  border-color: #ddd;
+  background: #f8f8f8;
+  line-height: 1.1;
+  float: right;
+  width: 50%;
+  font-family: $global-font-family;
+  font-size: $type-size-6 !important;
+}
+
+.callout__warning {
+  border-color: #ec5;
+  background: #fcfbf0;
+}
+
+.callout__danger {
+  border-color: #e55;
+  background: #fff8f8;
+}
+
+[class*='callout__'] h4 {
+  margin: 0 0 0 2px;
+  font-size: $type-size-5 !important;
+}
+
+[class*='callout__'] p {
+  margin: 0.1em 0 0.3em 2px !important;
+}
+
+[class*='callout__'] p:last-child {
+  margin: 0.1em 0 0 2px !important;
+}

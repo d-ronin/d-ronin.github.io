@@ -195,7 +195,8 @@ figure {
   }
 
   img {
-    width: 100%;
+    max-width: 100%;
+    max-height: 450px;
     border-radius: $border-radius;
     -webkit-transition: $global-transition;
     transition: $global-transition;
@@ -235,6 +236,7 @@ figure {
 /* Figure captions */
 
 figcaption {
+  display: block;
   margin-bottom: 0.5em;
   color: mix(#fff, $text-color, 25%);
   font-family: $caption-font-family;

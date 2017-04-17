@@ -232,6 +232,9 @@ compress_html:
   ignore:
     envs: development
 
+collections:
+  docs: 
+    output: true
 
 # Defaults
 defaults:
@@ -246,3 +249,18 @@ defaults:
       comments: # true
       share: true
       related: true
+  - scope:
+      path: ""
+      type: docs
+    values:
+      layout: single
+      author_profile: false
+      read_time: false
+      comments: # true
+      share: false
+      related: false
+      sidebar:
+        nav: docs
+      header:
+        overlay_filter: rgba(141, 76, 0, 0.715)
+        overlay_image: /assets/images/pages.jpg
