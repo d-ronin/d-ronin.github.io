@@ -63,8 +63,8 @@ intro:
             </md-button>
           </div>
         </md-toolbar>
-        <md-dialog-content style="min-width:700px;max-width:900px;max-height:800px; ">
-          <md-tabs md-dynamic-height md-border-bottom>
+        <md-dialog-content style="min-width:600px;max-width:900px;max-height:800px; ">
+          <md-tabs md-dynamic-height md-border-bottom md-selected="$ctrl.selectedTab">
             <md-tab label="summary">
               <md-content class="md-padding">
                 <!--h1 class="md-display-2">Summary</h1-->
@@ -287,6 +287,19 @@ intro:
                   Download Selected UAVObjects
                 </md-button>
               </md-dialog-actions>
+            </md-tab>
+            <md-tab label="other tunes">
+              <md-content class="md-padding">
+                <h2 style="margin: 0">All Tunes From This Board</h2>
+                <md-list flex="">
+                  <md-list-item class="md-2-line" ng-repeat="tune in otherTunes" ng-click="$ctrl.loadTune(tune.Key)">
+                    <div class="md-list-item-text">
+                      <h3>Tau: <span ng-bind="tune.Tau * 1000 | number: 1"></span> ms</h3>
+                      <p ng-bind="tune.Timestamp | relDate"></p>
+                    </div>
+                  </md-list-item>
+                </md-list>
+              </md-content>
             </md-tab>
           </md-tabs>
         </md-dialog-content>

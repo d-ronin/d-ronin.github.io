@@ -171,20 +171,33 @@ dronin.controller('AutotuneDialogController', function($scope, $http, $httpParam
         $window.location.href = 'https://www.google.com/maps/@' + lat + ',' + lon + ',12z';
     }
 
-    $location.search('key', tune);
+    $ctrl.loadTune = function(tune) {
+        $location.search('key', tune);
 
-    $http.get(autotown_api(['tune?' + $httpParamSerializer({tune: tune})])).
+        $ctrl.selectedTab = 0;
+        $http.get(autotown_api(['tune?' + $httpParamSerializer({tune: tune})])).
+            then(function successCallback(response) {
+                $scope.tune = response.data;
+
+                var objs = [];
+                angular.forEach($scope.tune.Orig.rawSettings, function(value, key) {
+                    this.push(value.name);
+                }, objs);
+                $scope.availableObjects = objs;
+                $scope.toggleAll();
+            }, function errorCallback(response) {
+                $scope.error = 'Sorry, could not fetch data. Try again later.';
+            }
+        );
+    }
+
+    $ctrl.selectedTab = 0;
+    $ctrl.loadTune(tune);
+
+    // get other tunes for this board
+    $http.get(autotown_api(['relatedTunes?' + $httpParamSerializer({tune: tune})])).
         then(function successCallback(response) {
-            $scope.tune = response.data;
-
-            var objs = [];
-            angular.forEach($scope.tune.Orig.rawSettings, function(value, key) {
-                this.push(value.name);
-            }, objs);
-            $scope.availableObjects = objs;
-            $scope.toggleAll();
-        }, function errorCallback(response) {
-            $scope.error = 'Sorry, could not fetch data. Try again later.';
+            $scope.otherTunes = response.data;
         }
     );
 });
