@@ -6,7 +6,7 @@ redirect_from: /autotown/autotuneresults.html
 share: true
 addl_headers: |
   <link rel="stylesheet" href="/assets/css/flags.min.css"></link>
-  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.4/angular-material.min.css">
   <style type="text/css">
     [ng-click],
     [data-ng-click],
@@ -63,8 +63,8 @@ intro:
             </md-button>
           </div>
         </md-toolbar>
-        <md-dialog-content style="min-width:700px;max-width:900px;max-height:800px; ">
-          <md-tabs md-dynamic-height md-border-bottom>
+        <md-dialog-content style="min-width:600px;max-width:900px;max-height:800px; ">
+          <md-tabs md-dynamic-height md-border-bottom md-selected="$ctrl.selectedTab">
             <md-tab label="summary">
               <md-content class="md-padding">
                 <!--h1 class="md-display-2">Summary</h1-->
@@ -288,8 +288,19 @@ intro:
                 </md-button>
               </md-dialog-actions>
             </md-tab>
-            <!-- dummy tab to work around a bug in md-tabs https://github.com/angular/material/issues/6212 -->
-            <md-tab ng-hide="true"></md-tab>
+            <md-tab label="other tunes">
+              <md-content class="md-padding">
+                <h2 style="margin: 0">All Tunes From This Board</h2>
+                <md-list flex="">
+                  <md-list-item class="md-2-line" ng-repeat="tune in otherTunes" ng-click="$ctrl.loadTune(tune.Key)">
+                    <div class="md-list-item-text">
+                      <h3>Tau: <span ng-bind="tune.Tau * 1000 | number: 1"></span> ms</h3>
+                      <p ng-bind="tune.Timestamp | relDate"></p>
+                    </div>
+                  </md-list-item>
+                </md-list>
+              </md-content>
+            </md-tab>
           </md-tabs>
         </md-dialog-content>
       </form>
@@ -302,6 +313,6 @@ intro:
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-aria.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-messages.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-sanitize.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.4/angular-material.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment-with-locales.min.js"></script>
 <script src="/assets/js/tunes.js"></script>
