@@ -4,14 +4,10 @@ excerpt: "We're broken?  :( Help us fix it."
 ---
 If you've found something wrong, dRonin has an [issues database](https://github.com/d-ronin/dRonin/issues) that tracks known problems with the codebase.
 
+{% include callout title="It's better to open a duplicate than to fail to report..." text="Searching the database to see if the issue already exists is helpful– preventing duplicate reports saves us all some work, and there may be information in the existing issue on workarounds.<br/><br/>However, it's more important that issues get reported so they can be fixed than duplicates prevented– it's easy to close a duplicate report and combine the information.  So don't worry **too** much about ruling out the presence of an existing bug report." %}
+
 First, before reporting an issue, search the database a couple times with associated keywords you can think of to see if someone has already reported the issue.  If you find that the issue has already been reported, you can add your experiences to the comment thread.
-[block:callout]
-{
-  "type": "info",
-  "title": "It's better to open a duplicate bug than to fail to report...",
-  "body": "Searching the database to see if the issue already exists is helpful– preventing duplicate reports saves us all some work, and there may be information in the existing issue on workarounds.\n\nHowever, it's more important that issues get reported so they can be fixed than duplicates prevented– it's easy to close a duplicate report and combine the information.  So don't worry **too** much about ruling out the presence of an existing bug report."
-}
-[/block]
+
 When you report an issue, a developer is likely to take one of two different approaches to solve the issue:
 
 1. Carefully scouring the associated code to see if there's a mechanism by which the failure you've seen can happen, or,

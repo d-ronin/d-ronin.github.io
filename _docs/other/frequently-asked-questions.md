@@ -57,5 +57,5 @@ Otherwise, it becomes possible to land and fail to disarm, and you're just a sma
 
 First, please read http://xyproblem.info before contacting support.  Keep in mind that dRonin is a non-profit project and all support is provided by volunteers, so please be patient.
 
-* dRonin Forum:  https://forum.dronin.org/
-* dRonin IRC (live chat): #dRonin on irc.freenode.net; can be accessed in a web browser here: https://kiwiirc.com/client/irc.kiwiirc.com/dronin/
+* dRonin [Forum](https://forum.dronin.org/)
+* dRonin IRC (live chat): #dRonin on irc.freenode.net; can be accessed in a web browser [here](https://kiwiirc.com/client/irc.kiwiirc.com/dronin/)

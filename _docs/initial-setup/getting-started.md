@@ -17,7 +17,6 @@ If you run into problems, consider joining the dRonin forum from the link at the
   * On Mac, a .dmg is provided; open it and drag the GCS to your Applications folder.  The first time you run GCS, you may have to right-click on 'dRonin GCS' and select "Open" to let the operating system know this is software you deliberately installed.
 * Open GCS.  You will see a welcome screen:
 {% include figure image_path="https://files.readme.io/AwOa7IQQtMXzjto9v4wh_welcome.png" alt="Welcome Screen" %}
-{% include callout title="Installing on Naze32" text="Additional steps are required to install the firmware on Naze32 or on flight controllers that do not contain an OpenPilot/Tau Labs/dRonin bootloader.   See [Using Naze32](doc:using-naze32) for more details" %}
 * Plug in the flight controller using USB.  A window will pop up to monitor the upgrade process.
 
    If the controller was not previously running dRonin, you will see a dialog like this:
