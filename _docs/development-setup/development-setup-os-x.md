@@ -8,6 +8,8 @@ Building on OS X is relatively easy.  Consider forking the project on GitHub bef
 
 ## Setting up prerequesites for the build environment
 
+{% include callout type="warning_full" title="Supported macOS Versions" text="GCS requires macOS 10.10 or newer. See the [Qt supported platforms list](http://doc.qt.io/archives/qt-5.8/supported-platforms.html#supported-configurations) for further details." %}
+
 ### Get Homebrew
 
 Homebrew is a package manager; it's the best way to get some of the prerequisites to build dRonin.
@@ -76,7 +78,7 @@ Be sure to copy the specified path into the installer when prompted for the inst
 
 ### Arm cross compilation toolchain
 
-This is easy.  Just type: 
+This is easy.  Just type:
 
 ```
 make arm_sdk_install

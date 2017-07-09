@@ -8,6 +8,8 @@ This page describes the procedures for setting up a Windows machine to compile d
 
 ## Setting up prerequisites for the build environment
 
+{% include callout type="warning_full" title="Supported Windows Versions" text="GCS requires Windows 7 or newer. See the [Qt supported platforms list](http://doc.qt.io/archives/qt-5.8/supported-platforms.html#supported-configurations) for further details." %}
+
 ### Download Required Programs
 
 [Git 2.6.4 or later](https://github.com/git-for-windows/git/releases) - The latest release should be fine.
@@ -24,7 +26,7 @@ Microsoft Visual Studio 2015 Community Edition - https://www.visualstudio.com/en
 
 * Install git. Default options are okay. You will use this to clone the dRonin repository to your machine. It also provides a bash shell and other Unix-like tools.
 * Install Python 2.7.x Anaconda distribution. Default options are okay. Python is used at various stages in the build process for both GCS and firmware.
-* Install Qt SDK. 
+* Install Qt SDK.
 
 {% include figure image_path="/assets/images/docs/5275df8-qtstep1.png" alt="Step 1" %}
 
@@ -69,7 +71,7 @@ git clone git://github.com/d-ronin/dRonin.git
 cd dRonin
 ```
 
-Type these command to install a bash_profile suitable for developing the project: 
+Type these command to install a bash_profile suitable for developing the project:
 
 ```
 cp make/winx86/bash_profile ~/.bash_profile
@@ -82,7 +84,7 @@ You may have to edit bash_profile if you have changed any installation paths fro
 exit
 ```
 
-### Automatic download and install of required programs 
+### Automatic download and install of required programs
 
 The dRonin build environment is capable of installing the rest of the tools that it needs.
 

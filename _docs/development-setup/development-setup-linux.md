@@ -8,6 +8,8 @@ Consider forking the project on GitHub before proceeding with this procedure if 
 
 ## Setting up prerequisites for the build environment
 
+{% include callout type="warning_full" title="GCS Compiler Requirements" text="GCS requires a compiler with C++11 support. GCC 4.8, 4.9 and 5.3 are fully supported. Ubuntu release 14.04 or newer meet this requirement by default. See the [Qt supported platforms list](http://doc.qt.io/archives/qt-5.8/supported-platforms.html#supported-configurations) for further details." %}
+
 ### Ubuntu/Mint/Debian based distributions
 
 First ensure your package manager is up to date:
@@ -27,8 +29,6 @@ If you are running a 64-bit version of Linux (if you run `uname -m` and the outp
 ```
 sudo apt-get install gcc-multilib
 ```
-
-{% include callout type="warning_full" title="GCC C++11 Support" text="GCS requires C++11 support through the flag `std=c++11` which was introduced in GCC 4.7.  Ubuntu release 14.04 or newer meet this requirement by default.  Building with older compilers is not supported." %}
 
 Finally, install some additional libraries required to compile GCS
 
