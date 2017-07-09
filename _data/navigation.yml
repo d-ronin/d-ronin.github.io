@@ -10,3 +10,46 @@ main:
     url: https://github.com/d-ronin/dRonin/
   - title: "Autotune"
     url: /tunes
+
+docs:
+  - title: dRonin Documentation
+    url: /docs/
+    children:
+      - title: "Using the Documentation"
+        url: /docs/
+
+  - title: Initial Setup
+    url: /docs/initial-setup/getting-started/
+    children:
+      - title: "Getting Started"
+        url: /docs/initial-setup/getting-started/
+      - title: "Upgrading a Controller"
+        url: /docs/initial-setup/upgrading-an-existing-flight-controller/
+      - title: "Blink/Beep Codes"
+        url: /docs/initial-setup/blink-beep-codes/
+
+  - title: Miscellaneous
+    url: /docs/other/frequently-asked-questions/
+    children:
+      - title: "FAQ/Troubleshooting"
+        url: /docs/other/frequently-asked-questions/
+      - title: "Common Peripherals"
+        url: /docs/advanced-configurations/common-flight-controller-peripherals/
+      - title: "Configuring MWOSD"
+        url: /docs/advanced-configurations/configuring-mwosd-for-dronin/
+
+  - title: Development
+    url: /docs/development-setup/tracking-development-with-git/
+    children:
+      - title: "Tracking Git"
+        url: /docs/development-setup/tracking-development-with-git/
+      - title: "Using Automated Builds"
+        url: /docs/development-setup/using-automated-builds-from-jenkins/
+      - title: "Dev Setup: Linux"
+        url: /docs/development-setup/development-setup-linux/
+      - title: "Dev Setup: Windows"
+        url: /docs/development-setup/development-setup-windows/
+      - title: "Dev Setup: MacOS"
+        url: /docs/development-setup/development-setup-os-x/
+      - title: "Writing Bug Reports"
+        url: /docs/development-setup/writing-good-bug-reports/

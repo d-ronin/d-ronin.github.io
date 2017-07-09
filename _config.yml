@@ -172,28 +172,28 @@ sass:
 
 # Outputting
 permalink: /:categories/:title/
-paginate: 5 # amount of posts to show
-paginate_path: /page:num/
+#paginate: 5 # amount of posts to show
+#paginate_path: /page:num/
 timezone: # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins
 gems:
-  - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
   - jekyll-redirect-from
   - jemoji
+    #  - jekyll-paginate
 
 # mimic GitHub Pages with --safe
 whitelist:
-  - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
   - jekyll-redirect-from
   - jemoji
+        #  - jekyll-paginate
 
 
 # Archives
@@ -232,6 +232,9 @@ compress_html:
   ignore:
     envs: development
 
+collections:
+  docs: 
+    output: true
 
 # Defaults
 defaults:
@@ -246,3 +249,18 @@ defaults:
       comments: # true
       share: true
       related: true
+  - scope:
+      path: ""
+      type: docs
+    values:
+      layout: single
+      author_profile: false
+      read_time: false
+      comments: # true
+      share: false
+      related: false
+      sidebar:
+        nav: docs
+      header:
+        overlay_filter: rgba(141, 76, 0, 0.715)
+        overlay_image: /assets/images/pages.jpg
