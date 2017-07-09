@@ -1,5 +1,6 @@
 ---
 title: "Using the Documentation"
+permalink: /docs/
 excerpt: "The user's guide for the user's guide"
 ---
 Welcome to the dRonin documentation.  It's one of many resources that can assist you in configuring a dRonin flight controller.  

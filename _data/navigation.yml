@@ -13,10 +13,10 @@ main:
 
 docs:
   - title: dRonin Documentation
-    url: /docs/initial-setup/using-the-documentation/
+    url: /docs/
     children:
       - title: "Using the Documentation"
-        url: /docs/initial-setup/using-the-documentation/
+        url: /docs/
 
   - title: Initial Setup
     url: /docs/initial-setup/getting-started/
