@@ -21,7 +21,7 @@ dRonin (and other OpenPilot-family firmwares) have a bootloader on the flight bo
 
 When a board is plugged in and powered by USB, it hesitates in the bootloader for a moment to see if the GCS wishes to speak to it.  If GCS is running at this time, it retrieves the version information from the board to determine if it needs an upgrade.  If it does, you will see a dialog like this:
 
-{% include figure image_path="https://files.readme.io/BJYBl00wSaLJDYvKmEVQ_upgrayed.png" alt="Upgrade dialog" %}
+{% include figure image_path="/assets/images/docs/BJYBl00wSaLJDYvKmEVQ_upgrayed.png" alt="Upgrade dialog" %}
 
 Click "Yes" to proceed with the automated upgrade.
 

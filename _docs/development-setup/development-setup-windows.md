@@ -26,12 +26,12 @@ Microsoft Visual Studio 2015 Community Edition - https://www.visualstudio.com/en
 * Install Python 2.7.x Anaconda distribution. Default options are okay. Python is used at various stages in the build process for both GCS and firmware.
 * Install Qt SDK. 
 
-{% include figure image_path="https://files.readme.io/5275df8-qtstep1.png" alt="Step 1" %}
+{% include figure image_path="/assets/images/docs/5275df8-qtstep1.png" alt="Step 1" %}
 
 * Skip account login etc.  
 * Use default installation folder.
 
-{% include figure image_path="https://files.readme.io/fee4fcd-qtstep2.png" alt="Step 2" %}
+{% include figure image_path="/assets/images/docs/fee4fcd-qtstep2.png" alt="Step 2" %}
 
 * Deselect Qt / Qt 5.7 and anything else that is selected by default (optional).  
 * Expand and select Qt / Qt 5.8 / msvc2015 32-bit.  
@@ -40,19 +40,19 @@ Microsoft Visual Studio 2015 Community Edition - https://www.visualstudio.com/en
 
 * Install Visual Studio.
 
-{% include figure image_path="https://files.readme.io/ad59ec4-step1.png" alt="VS Step 1" %}
+{% include figure image_path="/assets/images/docs/ad59ec4-step1.png" alt="VS Step 1" %}
 
 * Leave default install location, choose "Custom" installation type.
 
-{% include figure image_path="https://files.readme.io/5485a32-step2.png" alt="VS Step 2" %}
+{% include figure image_path="/assets/images/docs/5485a32-step2.png" alt="VS Step 2" %}
 
 * Unselect default features (optional), expand "Programming Languages" and select "Visual C++".
 
-{% include figure image_path="https://files.readme.io/bb474b5-step2a.png" alt="VS Step 3" %}
+{% include figure image_path="/assets/images/docs/bb474b5-step2a.png" alt="VS Step 3" %}
 
 * Expand "Windows and Web Development", then "Universal Windows App Development Tools". Select "Windows 10 SDK (10.0.10240)" **(Make sure to get this exact version!)**)."
 
-{% include figure image_path="https://files.readme.io/dfa7a1a-step3.png" alt="" caption="" %}
+{% include figure image_path="/assets/images/docs/dfa7a1a-step3.png" alt="" caption="" %}
 
 * Install/accept UAC prompt.
 

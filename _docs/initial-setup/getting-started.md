@@ -16,11 +16,11 @@ If you run into problems, consider joining the dRonin forum from the link at the
   * On Linux, there is a .deb package for Debian derived distributions like Ubuntu; or a .tar.xz file for portable installation.
   * On Mac, a .dmg is provided; open it and drag the GCS to your Applications folder.  The first time you run GCS, you may have to right-click on 'dRonin GCS' and select "Open" to let the operating system know this is software you deliberately installed.
 * Open GCS.  You will see a welcome screen:
-{% include figure image_path="https://files.readme.io/AwOa7IQQtMXzjto9v4wh_welcome.png" alt="Welcome Screen" %}
+{% include figure image_path="/assets/images/docs/AwOa7IQQtMXzjto9v4wh_welcome.png" alt="Welcome Screen" %}
 * Plug in the flight controller using USB.  A window will pop up to monitor the upgrade process.
 
    If the controller was not previously running dRonin, you will see a dialog like this:
-{% include figure image_path="https://files.readme.io/snZAPD6QbmBMKFco0j25_3e866128-f4e9-11e5-8807-ba48dd98d795.png" alt="Warning dialog" %}
+{% include figure image_path="/assets/images/docs/snZAPD6QbmBMKFco0j25_3e866128-f4e9-11e5-8807-ba48dd98d795.png" alt="Warning dialog" %}
 
    Select "Don't save" to start a clean configuration from scratch.   If instead you are upgrading a flight controller already running dRonin, please see [Upgrading an Existing Flight Controller](doc:upgrading-an-existing-flight-controller) .
 
@@ -57,7 +57,7 @@ Follow the prompts.  You will be instructed to move each channel in sequence, to
 
 The Vehicle Setup Wizard assumes motors/ESCs are attached to the flight controller in a specific order. Note that the order differs from other flight controller firmwares like CleanFlight (see the [Naze32 page](doc:using-naze32#baseflight--cleanflight-motor-ordering-conventions) for details).  In the configuration interface, on the vehicle setup pane, it is possible to remap the motors without moving any wires.  Be sure to save after making any changes.
 
-{% include figure image_path="https://files.readme.io/xt9q0CqnTjk9tqMIQVNc_outputmapping.png" alt="Output mapping on Vehicle screen" caption="Output mapping on Vehicle screen" %}
+{% include figure image_path="/assets/images/docs/xt9q0CqnTjk9tqMIQVNc_outputmapping.png" alt="Output mapping on Vehicle screen" caption="Output mapping on Vehicle screen" %}
 
 Some aircraft will require changes to board orientation on the 'attitude' config pane.  If the front of your flight controller does not face forward, make the appropriate changes there and then re-run level calibration.  Board orientation can be confirmed on the Flight Data screen; when the right side of the quadcopter faces the ground, the right side of the artificial horizon should be brown.
 
@@ -71,13 +71,13 @@ First, select "Arming Settings" at the top of the screen and select an arming se
 
 If you have configured an arming switch, select "switch" and be sure to enable the calibrate gyros and "Throttle must be low before arming" options.  Otherwise, it is recommended you select "Yaw Left+Throttle".  In this case, holding the throttle down and the yaw control to the left side for a second will arm the flight controller.  Holding it to the right side for a second will disarm the flight controller.  Click "Save" to apply these settings to the flight controller.
 
-{% include figure image_path="https://files.readme.io/a87064e-arming.png" alt="Arming Settings" caption="Arming Settings" %}
+{% include figure image_path="/assets/images/docs/a87064e-arming.png" alt="Arming Settings" caption="Arming Settings" %}
 
 {% include callout type="warning" title="Test your arming setting!" text="If something goes wrong, immediately disarm!  Most times aircraft are lost or broken would be recoverable with little damage if the operator had decided to disarm promptly rather than try to \"save it.\"" %}
 
 Next, select "Flight Mode Switch Settings."  At the upper-right corner of the screen, select the number of positions your flight mode switch has.  Configure one flight mode position for "Autotune" and the other flight mode positions to "Leveling" for your first flight.  In the upper right, select the number of positions that your flight mode switch has (usually 2 or 3).  Click "Save" to apply these settings to the flight controller".
 
-{% include figure image_path="https://files.readme.io/Z7kgGtFFR4qBG7zWNUAl_flightmode.png" alt="Flight Mode Configuration" caption="Flight Mode Configuration" %}
+{% include figure image_path="/assets/images/docs/Z7kgGtFFR4qBG7zWNUAl_flightmode.png" alt="Flight Mode Configuration" caption="Flight Mode Configuration" %}
 
 Finally, on the left side of the screen, choose "Autotune".  Check the box at the bottom of the screen that says "Enable Autotune Module" and click "Save" to apply this setting to the flight controller.
 
@@ -87,7 +87,7 @@ Remove all power from the flight controller, re-connect the battery, and connect
 
 If all is well, you should see something like this:
 
-{% include figure image_path="https://files.readme.io/3YH8mYi8Qwa7gABJkEtb_systemhealth.png" alt="System Health Gadget" caption="System Health Gadget" %}
+{% include figure image_path="/assets/images/docs/3YH8mYi8Qwa7gABJkEtb_systemhealth.png" alt="System Health Gadget" caption="System Health Gadget" %}
 
 When you are satisfied with the configuration and all is well, unplug the USB connection and battery from the flight controller and attach propellers.
 
@@ -139,7 +139,7 @@ After choosing your flight modes, be sure to save.
 
 Second, it's important to set rates that allow for the type of flying you'll be doing.  These control rates are used in acro or horizon modes (only the yaw component is used for leveling).  They are configured on the basic stabilization pane in configuration:
 
-{% include figure image_path="https://files.readme.io/5ab6268-rates.png" alt="Setting rates" %}
+{% include figure image_path="/assets/images/docs/5ab6268-rates.png" alt="Setting rates" %}
 
 Click the checkboxes to link roll with pitch and yaw, because generally it is preferred to fly the same rates on all 3 axes.  While you are adjusting rates, the shape of the stick response will show on the graph at right.
 

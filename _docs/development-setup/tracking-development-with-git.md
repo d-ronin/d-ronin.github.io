@@ -15,7 +15,7 @@ It may also be helpful to run through the [tryGit tutorial](https://try.github.i
 * [Create an account on GitHub](https://github.com/signup/free).
 * Go to the [dRonin GitHub page](https://github.com/d-ronin/dronin).
 * Click the fork button:
-{% include figure image_path="https://files.readme.io/HjUJwe3dTBKhp96B926D_fork.png" alt="Fork button" %}
+{% include figure image_path="/assets/images/docs/HjUJwe3dTBKhp96B926D_fork.png" alt="Fork button" %}
 
 You will be taken to your fork's page.  At the top, there will be an URL for your fork, in the format `https://github.com/yourusername/dRonin.git` – note this URL.
 
