@@ -91,6 +91,7 @@ author:
   facebook         : flydRonin
   foursquare       :
   github           : d-ronin/dronin
+  gitlab           :
   google_plus      :
   keybase          :
   instagram        :
@@ -177,8 +178,8 @@ permalink: /:categories/:title/
 timezone: # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
-# Plugins
-gems:
+# Plugins (previously gems:)
+plugins:
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
