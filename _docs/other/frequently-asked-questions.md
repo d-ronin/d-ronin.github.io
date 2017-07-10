@@ -8,17 +8,16 @@ Make sure you've turned up your rates on the stabilization pane!  Try 450 deg/se
 
 ### I'm getting bad AutoTune results.  What should I try next?
 
-Sadly, while AutoTune works well for most people it doesn't work well for all vehicles.  Each release has made improvements, and we expect the next release to be substantially better on F3 and F4 flight controllers.
+Sadly, while AutoTune works well for most people it doesn't work well for all vehicles.  This has been significantly improved in the latest release!
 
 That being said, there are some tips that often help:
 
 * Don't stack AutoTunes.  AutoTunes should be made from default tuning (there is a button on the stabilization pane to reset PIDs to default; be sure to do this for both the inner and outer loop), or...
-* Sometimes it is necessary to even turn down the default tuning.  If your multirotor is prone to oscillate in leveling mode on the defaults, turn down the inner loop PID coefficients on the stabilization pane.  The default values are 20/15; perhaps try 12/15 for a starting point.
+* Sometimes it is necessary to even turn down the default tuning.  If your multirotor is prone to oscillation in leveling mode with default PIDs, turn down the inner loop coefficients on the stabilization pane.  The default values are 20/15; perhaps try 12/15 for a starting point.
 * Sometimes reducing motor input/output curve fit on the bottom of the stabilization pane to 0.80 from the default 0.9 allows AutoTune to get a good system measurement.
-
-### Yaw is sluggish and wanders around  Is there any way to improve this?
-
-There is a checkbox when applying AutoTune to adjust Yaw as well– make sure to check it.  This is only applicable if AutoTune got a good measurement of yaw, which doesn't always happen (see the above tips for more info).
+* If you have a lot of vibration, this can be the culprit.
+  * To try software filtering: In the UAVO browser (on the "advanced" pane), select Settings → SensorSettings.  Set `LowpassCutoff` to 40; this changes the default filter cutoff from 55 Hz to 40Hz.  Set `LowpassOrder` to 2 (which uses a higher-order filter for the gyro data).  Click the disk icon with the up arrow at the top of the UAVO browser to save this to the flight controller.
+  * Ensure screws are tightened on the flight controller and consider adding mechanical filtering (e.g. o rings).
 
 ### How do I setup Air Mode?  What's "HangTime"?
 
@@ -40,6 +39,10 @@ It's strongly recommended to use HangTime that you sure switch arming.  This is 
 We do not recommend MultiShot or OneShot42.  OneShot125 already updates much faster than the actual response time of multirotors and propeller dynamics, and the shorter signal is more vulnerable to noise.
 
 However, by popular demand, the setup wizard supports selecting OneShot42.  Additionally, it is possible to configure output timings on the output pane to OneShot42 (42 to 83us) or MultiShot timings.
+
+### What about DShot?
+
+DShot offers identical flight performance to OneShot125, but eliminates the need for ESC calibration.
 
 ### Should I use PWM, PPM or S.Bus for receiver connection?
 
