@@ -89,26 +89,3 @@ You should be ready to go. Type `make all` to compile the entire project. Type `
 ## Running GCS
 
 Launch the gcs with `open build/ground/gcs/bin/dRonin-GCS.app` and connect to / flash your board.
-
-## Eclipse Setup (Optional)
-
-Extract the eclipse project:
-
-```
-pushd flight/Project/Eclipse
-unzip eclipseLinuxWsp.zip -d eclipseLinuxWsp
-mv eclipseLinuxWsp/.metadata ../../../
-mv eclipseLinuxWsp/.cproject ../../
-mv eclipseLinuxWsp/.project ../../
-mkdir ../../../tools/eclipseWorkspace
-```
-
-Install eclipse, use the `Eclipse Installer`: https://eclipse.org/downloads/
-
-Choose the `Eclipse IDE for C/C++ Developers` when prompted
-
-When Eclipse starts, choose the folder you created in `[Your Project Root]/tools/eclipseWorkspace` as the workspace directory.
-
-Then choose `File` -> `Import` and pick `Import an Existing Project`. Choose your project root directory, which is the same place you checked out the project with git.
-
-You'll see the two projects `android gcs` and `flight` appear. Hit `Finish` and you're good to go!
