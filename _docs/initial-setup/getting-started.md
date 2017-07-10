@@ -93,7 +93,7 @@ When you are satisfied with the configuration and all is well, unplug the USB co
 
 ### Red / yellow module alarms
 
-If a module is red, there is likely a problem with the associated portion of configuration.  (It is normal for memory to be low at this point on CC3D and Naze32).  Clicking on a module that is red or yellow (or x'd) usually provides additional details on the configuration problem.
+If a module is red, there is likely a problem with the associated portion of configuration.  Clicking on a module that is red or yellow (or x'd) usually provides additional details on the configuration problem.
 
 If you see a System config alarm, it is possible that autotune was set as a flight mode without enabling the autotune module or the flight mode switch is set to the autotune position.  (It is not permitted to arm the craft with the switch in the autotune position)
 
@@ -111,7 +111,7 @@ If the aircraft flies well (but sluggishly), flip to the autotune flight mode.  
 
 After your autotune flight, connect the flight board to GCS (no battery is necessary, so you can leave props on).  A wizard will automatically open inviting you to evaluate your autotune results.
 
-The wizard will show you the measured parameters– which you can ignore.  Then, you can select damping and noise sensitivity coefficients.  For now, leave the sliders alone and continue through the wizard, which will save the new tune to the flight controller.  On flight controllers with limited resources, like Naze32 or CC3D, now is a good time to uncheck the autotune checkbox and remove the autotune flight mode.
+The wizard will show you the measured parameters– which you can ignore.  Then, you can select damping and noise sensitivity coefficients.  For now, leave the sliders alone and continue through the wizard, which will save the new tune to the flight controller.  On flight controllers with limited resources, now is a good time to uncheck the autotune checkbox and remove the autotune flight mode.
 
 Next, you can fly in leveling again.  If all is well, your aircraft should be much more responsive due to using ideal control system parameters.  You'll probably want to turn up stick rates next on the stabilization pane to match your style of flying.  If you're going to do flips and aggressive maneuvers, a max stick rate of at least 400 deg/sec is recommended on all axes.
 
