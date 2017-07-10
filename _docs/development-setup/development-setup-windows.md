@@ -6,7 +6,7 @@ excerpt: "So you want to be a dRonin?"
 
 This page describes the procedures for setting up a Windows machine to compile dRonin firmware and GCS software. (More details on this are at [Tracking Development with Git](doc:tracking-development-with-git))
 
-## Setting up prerequisites for the build environment
+## Build Environment Prerequisites
 
 {% include callout type="warning_full" title="Supported Windows Versions" text="GCS requires Windows 7 or newer. See the [Qt supported platforms list](http://doc.qt.io/archives/qt-5.8/supported-platforms.html#supported-configurations) for further details." %}
 
@@ -58,9 +58,9 @@ Microsoft Visual Studio 2015 Community Edition - https://www.visualstudio.com/en
 
 * Install/accept UAC prompt.
 
-## Checking out the dRonin repository and building
+## Fetching Source Code and Building
 
-### Clone the source code repository
+### Cloning the Source Code Repository
 
 Start a shell using the "Git bash" program shortcut.
 
@@ -84,7 +84,7 @@ You may have to edit bash_profile if you have changed any installation paths fro
 exit
 ```
 
-### Automatic download and install of required programs
+## Automatic Download and Install of Required Programs
 
 The dRonin build environment is capable of installing the rest of the tools that it needs.
 
@@ -97,24 +97,17 @@ make openssl_install
 make zip_install
 ```
 
-Next, it's necessary to configure qbs:
+Next, it's necessary to configure qbs (XXX I'm not sure this is necessary anymore):
 
 ```
 qbs setup-toolchains --detect
 ```
 
-If you wish to build packages for distribution (not recommended unless you know what you're doing), you will also need to install breakpad.
-```
-make breakpad_install
-```
+GCS uses Google Breakpad for crash-reporting. Rather than compiling this every time you build GCS, it is built once during toolchain setup. Run `make breakpad_install`.
 
-## Building the software
+## Building the Software
 
-After this you can compile everything with the following commad!
-
-```
-make all
-```
+You should be ready to go. Type `make all` to compile the entire project. Type `make` to see a list of possible make arguments.
 
 ## Running GCS
 
