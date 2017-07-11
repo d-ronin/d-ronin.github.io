@@ -50,11 +50,11 @@ Microsoft Visual Studio 2015 Community Edition - https://www.visualstudio.com/en
 
 * Unselect default features (optional), expand "Programming Languages" and select "Visual C++".
 
-{% include figure image_path="/assets/images/docs/bb474b5-step2a.png" alt="VS Step 3" %}
+{% include figure image_path="/assets/images/docs/bb474b5-step2a.png" alt="VS Step 2A" %}
 
 * Expand "Windows and Web Development", then "Universal Windows App Development Tools". Select "Windows 10 SDK (10.0.10240)" **(Make sure to get this exact version!)**)."
 
-{% include figure image_path="/assets/images/docs/dfa7a1a-step3.png" alt="" caption="" %}
+{% include figure image_path="/assets/images/docs/dfa7a1a-step3.png" alt="VS Step 3" caption="" %}
 
 * Install/accept UAC prompt.
 

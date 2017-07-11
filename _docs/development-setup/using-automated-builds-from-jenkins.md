@@ -28,7 +28,7 @@ The dRonin job is used for builds that produce artifacts (official releases, nig
 
 Here's an example view of the dRonin job's web page:
 
-{% include figure image_path="/assets/images/docs/GM9OUQpFQiKYNsyAKlOb_jenky.png" alt="" caption="Jenkins \"dronin\" job" %}
+{% include figure image_path="/assets/images/docs/GM9OUQpFQiKYNsyAKlOb_jenky.png" alt="Jenkins dronin job" caption="Jenkins \"dronin\" job" %}
 
 The important part of the page is the "build history" on the left.  In this example, there's several builds:
 
@@ -40,7 +40,7 @@ All of the builds have blue dots next to them, indicating that they completed su
 
 If we click on #288, we can see the page for the individual build:
 
-{% include figure image_path="/assets/images/docs/FM4RnLpSR2RR6s9VKEWS_jenky2.png" alt="" caption="Jenkins build page" %}
+{% include figure image_path="/assets/images/docs/FM4RnLpSR2RR6s9VKEWS_jenky2.png" alt="Individual Jenkins build page" caption="Jenkins build page" %}
 
 Ignore the changes information.  The useful part of the page is at the bottom.  There are three configurations:
 
@@ -50,13 +50,13 @@ Ignore the changes information.  The useful part of the page is at the bottom.  
 
 If we click 'master', we are taken to a page with the Linux artifacts:
 
-{% include figure image_path="/assets/images/docs/T1NXSv1MQaiEfdIlCKtw_jenky3.png" alt="" caption="Jenkins artifacts page" %}
+{% include figure image_path="/assets/images/docs/T1NXSv1MQaiEfdIlCKtw_jenky3.png" alt="dRonin linux artifacts page" caption="Jenkins artifacts page" %}
 
 and you can click on them to download and install them.
 
 Alternatively, there is a pull-down menu that can be accessed to see build output, next to the configuration name:
 
-{% include figure image_path="/assets/images/docs/aawM4DotS1Xqb6p3grLw_jenky4.png" alt="" %}
+{% include figure image_path="/assets/images/docs/aawM4DotS1Xqb6p3grLw_jenky4.png" alt="Viewing the build output for a specific builder" %}
 
 From here, you can see the individual logs to determine why the build has failed.
 
@@ -64,12 +64,12 @@ From here, you can see the individual logs to determine why the build has failed
 
 As stated above, Jenkins automatically builds pull requests.  If one of these pull requests fails, you will see something like this on the pull request page:
 
-{% include figure image_path="/assets/images/docs/FxRPovkGTtKDxOWDDjW6_buildfail.png" alt="" caption="Build failure message" %}
+{% include figure image_path="/assets/images/docs/FxRPovkGTtKDxOWDDjW6_buildfail.png" alt="Jenkins build failure message on GitHub" caption="Build failure message" %}
 
 Click on 'Details' to go to a page where in turn you can click on Master's pulldown -> Console Output; in turn this will show you the build output so you can determine why the build failed.
 
 You might also see something like this in the comments of a build request page:
 
-{% include figure image_path="/assets/images/docs/B9K9prmCTfqR3q58Yn5Q_artifactsbuilt.png" alt="" caption="Artifacts built comment" %}
+{% include figure image_path="/assets/images/docs/B9K9prmCTfqR3q58Yn5Q_artifactsbuilt.png" alt="The comment the dRonin Jenkins builder leaves when artifacts are built." caption="Artifacts built comment" %}
 
 In the above sequence, a developer requested that Jenkins build artifacts for this PR.  Links to the three sets of artifacts are in the post.  The artifacts in this build are a combination of the latest `next` development code with the changes in this pull request applied to it.

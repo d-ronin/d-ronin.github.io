@@ -10,7 +10,7 @@ dRonin flight controllers have ports allowing you to connect a wide variety of "
 
 dRonin can monitor battery voltage, current, and expected remaining life, and prevent arming when a low battery is attached.  This battery data can also be reported over an on-screen display or radio receiver telemetry.
 
-Most flight controllers have voltage and current sense pins, which can be used with an external battery monitoring board like the [UberDistro](https://www.multirotorsuperstore.com/brotronics-uberdistro.html), [AmpWings](https://github.com/Brotronics/AmpWings), or [AttoPilot](https://www.sparkfun.com/products/9028).
+Most flight controllers have voltage and current sense pins, which can be used with an external battery monitoring board like the [Matek PDB-XPW](http://a.co/ehXGG5z), [AmpWings](https://github.com/Brotronics/AmpWings), or [AttoPilot](https://www.sparkfun.com/products/9028).
 
 After reading the documentation for your battery monitoring board, and attaching the sensor's current and voltage sense leads to the flight controller's ADC lines, enable the battery module on the modules pane in GCS.
 
