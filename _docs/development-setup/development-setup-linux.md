@@ -99,7 +99,7 @@ You should be ready to go. Type `make all` to compile the entire project. Type `
 
 ## Installing udev rules
 
-You need to grant permission for normal users (ie. not root) to access your flight-controller boards from the GCS. This is accomplished by installing specific udev rules for the various flight controller boards.
+You need to grant permission for normal users (i.e. not root) to access your flight-controller boards from the GCS. This is accomplished by installing specific udev rules for the various flight controller boards.
 
 The udev rules are generated dynamically (from the file shared/usb_ids/usb_ids.json). To generate dRonin udev rules, copy them to your system and load them, run these commands:
 
