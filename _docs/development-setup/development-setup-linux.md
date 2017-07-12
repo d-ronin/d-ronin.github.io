@@ -6,11 +6,11 @@ excerpt: "So you want to be a dRonin?"
 
 Consider forking the project on GitHub before proceeding with this procedure if you intend to contribute back to the project.  (More details on this are at [Tracking Development with Git](doc:tracking-development-with-git))
 
-## Build Environment Prerequisites
+## Build environment prerequisites
 
 {% include callout type="warning_full" title="GCS Compiler Requirements" text="GCS requires a compiler with C++11 support. GCC 4.8, 4.9 and 5.3 are fully supported. Ubuntu release 14.04 or newer meet this requirement by default. See the [Qt supported platforms list](http://doc.qt.io/archives/qt-5.8/supported-platforms.html#supported-configurations) for further details." %}
 
-### Ubuntu/Mint/Debian Based Distributions
+### Ubuntu/Mint/Debian derived distributions
 
 First ensure your package manager is up to date:
 
@@ -45,9 +45,9 @@ Install the required packages (XXX doesn't look correct, we supply Qt headers an
     sudo dnf install libusb-devel qt5-qtdeclarative-devel qt5-qtimageformats qt5-qtserialport-devel qt5-qtsvg-devel qt5-qtxmlpatterns-devel SDL-devel systemd-devel zlib-devel
 ```
 
-## Fetching Source Code and Building
+## Fetching source code and building
 
-### Cloning the Source Code Repository
+### Cloning the repository
 
 First, clone the dRonin repository.  Change to an appropriate directory to check out the code.  If you have your own fork, specify its URL on the git command line (otherwise you can use the parent fork per the below example).
 
@@ -56,11 +56,11 @@ git clone git://github.com/d-ronin/dRonin.git
 cd dRonin
 ```
 
-## Automatic Download and Install of Required Programs
+## Automatic download and install of prerequisites
 
 The dRonin build environment is capable of installing the rest of the tools that it needs.
 
-### GCS Build Tools
+### GCS build tools
 
 Next, run `make qt_sdk_install`, copy the path from the output in your terminal and paste it into the installer when prompted.
 
@@ -83,7 +83,7 @@ Be sure to copy the specified path into the installer when prompted for the inst
 
 GCS uses Google Breakpad for crash-reporting. Rather than compiling this every time you build GCS, it is built once during toolchain setup. Run `make breakpad_install`.
 
-### Flight Firmware Build Tools
+### Flight firmware build tools
 
 This is easy.  Just type: `make arm_sdk_install`
 
@@ -93,11 +93,11 @@ FlyingPi requires additional steps to cross-compile the dRonin flight stack for 
 
 {% include callout type="warning_full" title="Building for Raspberry Pi?" text=flyingpi %}
 
-## Building the Software
+## Building the software
 
 You should be ready to go. Type `make all` to compile the entire project. Type `make` to see a list of possible make arguments.
 
-## Installing udev Rules
+## Installing udev rules
 
 You need to grant permission for normal users (ie. not root) to access your flight-controller boards from the GCS. This is accomplished by installing specific udev rules for the various flight controller boards.
 

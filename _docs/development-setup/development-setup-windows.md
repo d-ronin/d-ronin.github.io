@@ -6,11 +6,11 @@ excerpt: "So you want to be a dRonin?"
 
 This page describes the procedures for setting up a Windows machine to compile dRonin firmware and GCS software. (More details on this are at [Tracking Development with Git](doc:tracking-development-with-git))
 
-## Build Environment Prerequisites
+## Build environment prerequisites
 
 {% include callout type="warning_full" title="Supported Windows Versions" text="GCS requires Windows 7 or newer. See the [Qt supported platforms list](http://doc.qt.io/archives/qt-5.8/supported-platforms.html#supported-configurations) for further details." %}
 
-### Download Required Programs
+### Download required programs
 
 [Git 2.6.4 or later](https://github.com/git-for-windows/git/releases) - The latest release should be fine.
 
@@ -20,7 +20,7 @@ Qt 5.6.1 (online installer) - http://download.qt.io/official_releases/online_ins
 
 Microsoft Visual Studio 2015 Community Edition - https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx. __Do not__ install an older or newer release, as it will not work. MSVC is used to compile GCS on Windows.
 
-### Install Required Programs
+### Install required programs
 
 {% include callout type="warning" title="Default install paths" text="The bash_profile provided by dRonin is built to use default install paths. Please keep default paths while installing tools unless you are prepared to edit the bash profile by hand. Read the following steps carefully to avoid problems." %}
 
@@ -58,9 +58,9 @@ Microsoft Visual Studio 2015 Community Edition - https://www.visualstudio.com/en
 
 * Install/accept UAC prompt.
 
-## Fetching Source Code and Building
+## Fetching source code and building
 
-### Cloning the Source Code Repository
+### Cloning the repository
 
 Start a shell using the "Git bash" program shortcut.
 
@@ -84,7 +84,7 @@ You may have to edit bash_profile if you have changed any installation paths fro
 exit
 ```
 
-## Automatic Download and Install of Required Programs
+## Automatic download and install of prerequisites
 
 The dRonin build environment is capable of installing the rest of the tools that it needs.
 
@@ -105,7 +105,7 @@ qbs setup-toolchains --detect
 
 GCS uses Google Breakpad for crash-reporting. Rather than compiling this every time you build GCS, it is built once during toolchain setup. Run `make breakpad_install`.
 
-## Building the Software
+## Building the software
 
 You should be ready to go. Type `make all` to compile the entire project. Type `make` to see a list of possible make arguments.
 
