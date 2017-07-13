@@ -8,7 +8,7 @@ main:
     url: https://forum.dronin.org
   - title: "GitHub"
     url: https://github.com/d-ronin/dRonin/
-  - title: "Autotune"
+  - title: "AutoTune"
     url: /tunes
 
 docs:
