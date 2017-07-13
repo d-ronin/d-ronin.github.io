@@ -49,7 +49,7 @@ docs:
         url: /docs/development-setup/development-setup-linux/
       - title: "Dev Setup: Windows"
         url: /docs/development-setup/development-setup-windows/
-      - title: "Dev Setup: MacOS"
+      - title: "Dev Setup: macOS"
         url: /docs/development-setup/development-setup-os-x/
       - title: "Writing Bug Reports"
         url: /docs/development-setup/writing-good-bug-reports/
