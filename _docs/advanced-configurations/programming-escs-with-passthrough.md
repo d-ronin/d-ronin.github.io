@@ -3,16 +3,16 @@ title: "Programming ESCs with Passthrough"
 excerpt: "How to use BLHeliConfigurator or BLHeliSuite with dRonin"
 ---
 
-{% include callout type="danger" title="Remove props before ESC programming!" text="ESC programming generally requires battery power to be provided to the ESCs, and for unusual signals to be sent down the control line to the ESC.  Motors can accidentally beign spinning.  Ensure that **ALL PROPS** are removed from the vehicle prior to ESC programming and that wires and fingertips will not become entangled in motors if they begin to spin." %}
+{% include callout type="danger" title="Remove props before ESC programming!" text="ESC programming generally requires battery power to be provided to the ESCs, and for unusual signals to be sent down the control line to the ESC.  Motors can accidentally begin spinning.  Ensure that **ALL PROPS** are removed from the vehicle prior to ESC programming and that wires and fingertips will not become entangled in motors if they begin to spin." %}
 
-dRonin now supports programming ESCs using 4WIF-style passthrough.  The "MSP" module emulates the MultiWii/CleanFlight/BetaFlight configuration interface.  BLHeli, BLHeli_S , BLHeli32, and SimonK ESCs can be reprogrammed.
+dRonin now supports programming ESCs using 4WIF-style passthrough.  The "MSP" module emulates the MultiWii/Cleanflight/Betaflight configuration interface.  BLHeli, BLHeli_S , BLHeli32, and SimonK ESCs can be reprogrammed.
 
 First, it's important to configure the USB virtual com port to speak the MSP protocol.  On the hardware configuration page, select that port as "MSP" and turn off any other MSP ports used for on-screen displays.  (This configuration can be reversed after ESC programming to save resources and re-enable character OSD support).  Restart the flight controller.
 
 {% include callout type="info" title="Battery power and ESC programming" text="Battery power must be provided for ESC programming.  On some ESCs, it is necessary to apply the battery power after connecting BLHeliConfigurator/BLHeliSuite." %}
 Next, you may configure and program the ESCs.  Remove any props, connect the flight controller with USB, and apply battery power.
 
-## With BLHeliConfigurator
+## With BLHeliConfigurator (recommended)
 
 BLHeliConfigurator is a Chrome application that can be found [here](https://chrome.google.com/webstore/detail/blheli-configurator/mejfjggmbnocnfibbibmoogocnjbcjnk?hl=en).
 

@@ -2,7 +2,7 @@
 title: "Writing Good Bug Reports"
 excerpt: "We're broken?  :( Help us fix it."
 ---
-If you've found something wrong, dRonin has an [issues database](https://github.com/d-ronin/dRonin/issues) that tracks known problems with the codebase.
+If you've found something wrong, dRonin has an [issues database](https://github.com/d-ronin/dRonin/issues) that tracks known problems with the software.
 
 {% include callout title="It's better to open a duplicate than to fail to report..." text="Searching the database to see if the issue already exists is helpful– preventing duplicate reports saves us all some work, and there may be information in the existing issue on workarounds.<br/><br/>However, it's more important that issues get reported so they can be fixed than duplicates prevented– it's easy to close a duplicate report and combine the information.  So don't worry **too** much about ruling out the presence of an existing bug report." %}
 

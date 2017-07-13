@@ -4,7 +4,7 @@ excerpt: ""
 ---
 ## Preparing OSD Firmware
 
-While the CleanFlight version of MWOSD will work, there's some additional functionality that you get when you use a version compiled especially for dRonin (primarily, the display of alarms and errors).  To do this, follow these steps.  Note that a FTDI USB-to-serial cable is required for this procedure.
+While the Cleanflight version of MWOSD will work, there's some additional functionality that you get when you use a version compiled especially for dRonin (primarily, the display of alarms and errors).  To do this, follow these steps.  Note that a FTDI USB-to-serial cable is required for this procedure.
 
 * Download prerequisites
   * Download and install Arduino https://www.arduino.cc/en/Main/Software

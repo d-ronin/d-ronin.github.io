@@ -71,7 +71,7 @@ make all_clean
 
 ## Retrieving and testing other pull requests
 
-It is also helpful to be able to retrieve and test other peoples' pull requests.  There is a neat trick to make retrieving PRs easier from github.  First, from your dronin repository edit `.git/config`.  In the `[remote "upstream"]` section, add a new line that says:
+It is also helpful to be able to retrieve and test other peoples' pull requests.  There is a neat trick to make retrieving PRs easier from GitHub.  First, from your dRonin repository edit `.git/config`.  In the `[remote "upstream"]` section, add a new line that says:
 
 ```
         fetch = +refs/pull/*/head:refs/remotes/pr/*
@@ -86,7 +86,7 @@ git merge pr/1000
 git merge pr/1100
 ```
 
-to get source code of next with PR's 1000 and 1100 applied for testing.
+to get source code of next with PRs 1000 and 1100 applied for testing.
 
 ## Set your user information
 
