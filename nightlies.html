@@ -1,0 +1,112 @@
+---
+title: "Download Nightly Builds"
+layout: single
+permalink: /nightlies
+share: false
+addl_headers: |
+  <script type="text/javascript" src="/assets/js/vendor/jquery/jquery-1.12.4.min.js"></script>
+
+  <script>
+  $(document).ready(function() {
+    var proxy = 'https://cors-anywhere.herokuapp.com/'; // TODO: install https://wiki.jenkins.io/display/JENKINS/Cors+Filter+Plugin
+
+    function addToSortedList($list, $ele) {
+      $list.append($ele);
+      var listItems = $list.children('li').get();
+      listItems.sort(function(a, b) {
+        return $(a).text().toUpperCase().localeCompare($(b).text().toUpperCase());
+      });
+      $.each(listItems, function(idx, itm) { $list.append(itm); });
+    }
+
+    // make artifact file names friendlier
+    function pretty_artifact_name(filename) {
+      if (/\-(breakpad|symbols)\.(tar\.xz|zip)$/.exec(filename) != null)
+        return null;
+      var prefix = '';
+      if (filename.endsWith('.apk')) {
+        prefix = 'Android: ';
+      } else if (filename.includes('macos')) {
+        if (filename.endsWith('.zip'))
+          return null;
+        prefix = 'macOS: ';
+      } else if (filename.includes('win')) {
+        prefix = 'Windows: ';
+      } else {
+        prefix = 'Linux: '
+      }
+      return prefix + filename;
+    }
+
+    // fetch artifacts for a run on one slave
+    function fetch_run(url, list) {
+      var reqUri = url + 'api/json?tree=artifacts[fileName,relativePath]';
+      $.getJSON(proxy + reqUri)
+        .done(function(data) {
+          for (var i = 0; i < data.artifacts.length; i++) {
+            var art = data.artifacts[i];
+            var name = pretty_artifact_name(art.fileName);
+            if (name == null)
+              continue;
+            var dl_link = url + 'artifact/' + art.relativePath;
+            addToSortedList(list, $('<li><a href="' + dl_link + '">' + name + '</a></li>'));
+          }
+        });
+    }
+
+    // check runs on build slaves
+    function fetch_build(data) {
+      var date = new Date(data.timestamp);
+
+      var div = $('<div/>');
+      div.append($('<h3/>').text(date.toDateString()));
+      var p = $('<p/>');
+      p.append($('<a>Jenkins build ' + data.number + '</a>').attr('href', data.url));
+      var list = $('<ul/>');
+      p.append(list);
+      div.append(p);
+      $('#builds').append(div);
+
+      for (var i = 0; i < data.runs.length; i++) {
+        var run = data.runs[i];
+        if (run.number != data.number)
+          continue; // old winx86 builder
+        fetch_run(run.url, list);
+      }
+    };
+
+    var reqUri = 'http://jar.lyle.org:8080/job/dronin/api/json?tree=builds[number,building,actions[causes],runs[number,url],timestamp,url]{,10}';
+    // fetch a list of builds caused by timer
+    $.getJSON(proxy + reqUri)
+      .done(function(data) {
+        var success = 0;
+        for (var i = 0; i < data.builds.length && success < 3; i++) {
+          var build = data.builds[i];
+          if (build.building)
+            continue;
+
+          for (var j = 0; j < build.actions.length; j++) {
+            var act = build.actions[j];
+            if (!act.hasOwnProperty('_class') || !act.hasOwnProperty('causes'))
+              continue;
+            if (act._class.endsWith('CauseAction') && act.causes[0]._class.endsWith('TimerTriggerCause')) {
+              fetch_build(build);
+              success++;
+              break;
+            }
+          }
+        }
+      })
+      .fail(function(data) {
+        console.error('Failed to fetch: ', data.statusCode());
+        $('#builds').html('<p style="color: red">Failed to fetch data from jenkins!</p>')
+        $('#builds').addClass('notice--warning');
+      });
+  });</script>
+header:
+  overlay_color: "#824700"
+---
+
+<p class="notice--warning">Nightly builds are unstable, and should be used with care. <strong>Unless you have been directed here by a project maintainer, please stick to <a href="{{ site.baseurl }}/download">official releases</a>.</strong></p>
+
+<div id="builds"></div>
