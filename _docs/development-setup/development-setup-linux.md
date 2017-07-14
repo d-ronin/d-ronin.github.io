@@ -36,14 +36,14 @@ Finally, install some additional libraries required to compile GCS
 sudo apt-get install zlib1g-dev libusb-1.0-0-dev libudev-dev libgl1-mesa-dev libpulse-dev
 ```
 
-### Fedora-Based Distributions
+### Fedora (x64)
 
-Install the required packages (XXX doesn't look correct, we supply Qt headers and binaries):
+Install the required packages (tested on Fedora 26 Workstation):
 
 ```
-    sudo dnf install libstdc++.i686 gcc-c++ ccache
-    sudo dnf install libusb-devel qt5-qtdeclarative-devel qt5-qtimageformats qt5-qtserialport-devel qt5-qtsvg-devel qt5-qtxmlpatterns-devel SDL-devel systemd-devel zlib-devel
+    sudo dnf install libstdc++.i686 glibc-devel.i686 mesa-libGL-devel zlib-devel systemd-devel pulseaudio-libs-devel gcc gcc-c++ git ccache
 ```
+For other Fedora-based distributions (e.g. CentOS) you may need to substitute `yum` for `dnf`.
 
 ## Fetching source code and building
 
