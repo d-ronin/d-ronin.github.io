@@ -26,7 +26,7 @@ and then:
 brew doctor
 ```
 
-Then, you can use homebrew to install wget:
+Then, you can use Homebrew to install wget:
 
 ```
 brew install wget

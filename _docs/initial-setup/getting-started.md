@@ -55,7 +55,7 @@ Follow the prompts.  You will be instructed to move each channel in sequence, to
 
 ### Remapping motors and setting board orientation
 
-The Vehicle Setup Wizard assumes motors/ESCs are attached to the flight controller in a specific order. Note that the order differs from other flight controller firmwares like CleanFlight (see the [Naze32 page](doc:using-naze32#baseflight--cleanflight-motor-ordering-conventions) for details).  In the configuration interface, on the vehicle setup pane, it is possible to remap the motors without moving any wires.  Be sure to save after making any changes.
+The Vehicle Setup Wizard assumes motors/ESCs are attached to the flight controller in a specific order. Note that the order differs from other flight controller firmwares like Cleanflight (see the [Naze32 page](doc:using-naze32#baseflight--cleanflight-motor-ordering-conventions) for details).  In the configuration interface, on the vehicle setup pane, it is possible to remap the motors without moving any wires.  Be sure to save after making any changes.
 
 {% include figure image_path="/assets/images/docs/xt9q0CqnTjk9tqMIQVNc_outputmapping.png" alt="Output mapping on Vehicle screen" caption="Output mapping on Vehicle screen" %}
 

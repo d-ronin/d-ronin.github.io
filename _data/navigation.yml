@@ -37,6 +37,8 @@ docs:
         url: /docs/advanced-configurations/common-flight-controller-peripherals/
       - title: "Configuring MWOSD"
         url: /docs/advanced-configurations/configuring-mwosd-for-dronin/
+      - title: "Programming ESCs"
+        url: /docs/advanced-configurations/programming-escs-with-passthrough/
 
   - title: Development
     url: /docs/development-setup/tracking-development-with-git/
