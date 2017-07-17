@@ -6,7 +6,7 @@ Git is an extremely powerful distributed version control system that helps dRoni
 
 {% include callout title="Concept: forks" text="Every developer (and many users) has their own fork (copy) of the dRonin code repository with its own history.  In this fork, changes can be made until they are \"ready\", when they can be submitted to the main dRonin fork as a pull request.<br/><br/>When dRonin accepts this pull request, the history associated with those changes is appended to the dRonin revision control history." %}
 
-The individual Development Setup documentation pages (available for [Mac](doc:development-setup-os-x), [Windows](doc:development-setup-windows), and  [Linux](doc:development-setup-linux)) document installing git and associated development tools.  This page instead covers best practices for how to maintain your git repository. 
+The individual Development Setup documentation pages (available for [Mac](/docs/development-setup/development-setup-os-x/), [Windows](/docs/development-setup/development-setup-windows/), and  [Linux](/docs/development-setup/development-setup-linux/)) document installing git and associated development tools.  This page instead covers best practices for how to maintain your git repository. 
 
 It may also be helpful to run through the [tryGit tutorial](https://try.github.io/levels/1/challenges/1) to become familiar with the git command line tools.
 

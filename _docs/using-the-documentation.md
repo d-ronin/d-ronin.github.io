@@ -7,7 +7,7 @@ Welcome to the dRonin documentation.  It's one of many resources that can assist
 
 {% include callout type="danger_full" title="dRonin is provided without any warranty!" text="Multirotors and remote controlled aircraft are potentially dangerous.  Ensure you are flying in a safe environment and **FLY AT YOUR OWN RISK**." %}
 
-The [Getting Started with dRonin](doc:getting-started) page might be a good place to start.  Otherwise, on the left side of this page a variety of topics are linked.  Besides this documentation, the [dRonin wiki](https://github.com/d-ronin/dRonin/wiki) covers many topics that are not fully explained in this documentation.  We also have a [forum](https://forum.dronin.org) that may be helpful if you're stuck.
+The [Getting Started with dRonin](/docs/initial-setup/getting-started/) page might be a good place to start.  Otherwise, on the left side of this page a variety of topics are linked.  Besides this documentation, the [dRonin wiki](https://github.com/d-ronin/dRonin/wiki) covers many topics that are not fully explained in this documentation.  We also have a [forum](https://forum.dronin.org) that may be helpful if you're stuck.
 
 ## Are there any other resources that may be helpful?
 

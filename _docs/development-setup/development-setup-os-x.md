@@ -4,7 +4,7 @@ excerpt: "So you want to be a dRonin?"
 ---
 {% include toc %}
 
-Building on macOS is relatively easy.  Consider forking the project on GitHub before proceeding with this procedure if you intend to contribute back to the project.  (More details on this are at [Tracking Development with Git](doc:tracking-development-with-git))
+Building on macOS is relatively easy.  Consider forking the project on GitHub before proceeding with this procedure if you intend to contribute back to the project.  (More details on this are at [Tracking Development with Git](/docs/development-setup/tracking-development-with-git/))
 
 ## Build environment prerequisites
 
