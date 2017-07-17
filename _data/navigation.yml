@@ -1,7 +1,7 @@
 # main links
 main:
   - title: "Documentation"
-    url: https://dronin.readme.io
+    url: /docs/
   - title: "Download"
     url: /download
   - title: "Forum"
