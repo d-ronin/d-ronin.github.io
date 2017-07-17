@@ -22,7 +22,7 @@ If you run into problems, consider joining the dRonin forum from the link at the
    If the controller was not previously running dRonin, you will see a dialog like this:
 {% include figure image_path="/assets/images/docs/snZAPD6QbmBMKFco0j25_3e866128-f4e9-11e5-8807-ba48dd98d795.png" alt="Warning dialog" %}
 
-   Select "Don't save" to start a clean configuration from scratch.   If instead you are upgrading a flight controller already running dRonin, please see [Upgrading an Existing Flight Controller](doc:upgrading-an-existing-flight-controller) .
+   Select "Don't save" to start a clean configuration from scratch.   If instead you are upgrading a flight controller already running dRonin, please see [Upgrading an Existing Flight Controller](/docs/initial-setup/upgrading-an-existing-flight-controller/) .
 
    Follow the prompts, and dRonin will automatically be installed on the flight controller.
 

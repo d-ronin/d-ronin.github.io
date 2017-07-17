@@ -4,7 +4,7 @@ excerpt: "So you want to be a dRonin?"
 ---
 {% include toc %}
 
-Consider forking the project on GitHub before proceeding with this procedure if you intend to contribute back to the project.  (More details on this are at [Tracking Development with Git](doc:tracking-development-with-git))
+Consider forking the project on GitHub before proceeding with this procedure if you intend to contribute back to the project.  (More details on this are at [Tracking Development with Git](/docs/development-setup/tracking-development-with-git/))
 
 ## Build environment prerequisites
 

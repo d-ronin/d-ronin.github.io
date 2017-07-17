@@ -4,7 +4,7 @@ excerpt: "So you want to be a dRonin?"
 ---
 {% include toc %}
 
-This page describes the procedures for setting up a Windows machine to compile dRonin firmware and GCS software. (More details on this are at [Tracking Development with Git](doc:tracking-development-with-git))
+This page describes the procedures for setting up a Windows machine to compile dRonin firmware and GCS software. (More details on this are at [Tracking Development with Git](/docs/development-setup/tracking-development-with-git/))
 
 ## Build environment prerequisites
 
