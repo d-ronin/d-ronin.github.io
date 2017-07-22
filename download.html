@@ -15,11 +15,12 @@ addl_headers: |
     $.getJSON(requri)
       .done(function(json) {
         var converter = new showdown.Converter();
+        converter.setFlavor('github');
         json.markdown = converter.makeHtml(json.body);
 
         json.assets.sort((a, b) => a.label.localeCompare(b.label));
-
         var output = Mustache.render("<ul id=\"release_assets\">{{#assets}}<li><a href={{browser_download_url}}>{{label}}</a></li>{{/assets}}</ul><p>{{{markdown}}}</p>", json);
+
         $("#rank").html(output);
         $(".page__title").text(json.name);
       })
