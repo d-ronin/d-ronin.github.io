@@ -255,7 +255,7 @@ defaults:
       path: ""
       type: docs
     values:
-      layout: single
+      layout: doc
       author_profile: false
       read_time: false
       comments: # true
