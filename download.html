@@ -6,49 +6,27 @@ share: true
 redirect_from: /releases/releases.html
 addl_headers: |
   <script type="text/javascript" src="/assets/js/vendor/jquery/jquery-1.12.4.min.js"></script>
-  <script type="text/javascript" src="/assets/js/vendor/dr/micromarkdown.min.js"></script>
+  <script type="text/javascript" src="/assets/js/vendor/showdownjs/showdown.min.js"></script>
   <script type="text/javascript" src="/assets/js/vendor/dr/mustache.min.js"></script>
-
-  <script>    
-  function loadtemp(json){
-    json.markdown = micromarkdown.parse(json.body);
-    function comp_ass(a, b) {
-      if (a.label > b.label) {
-        return -1;
-      } else if (a.label === b.label) {
-        return 0;
-      }
-
-      return 1;
-    }
-    json.assets.sort(comp_ass);
-
-    var output = Mustache.render("<ul id=\"release_assets\">{{#assets}}<li><a href={{browser_download_url}}>{{label}}</a></li>{{/assets}}</ul><p>{{{markdown}}}</p>", json);
-    document.getElementById('rank').innerHTML = output;
-    document.getElementsByClassName('page__title')[0].innerHTML = json.name;
-  }
-  function requestFail() {
-    $("#latest-release").html("<p>Unable to locate release!(</p>");
-  }
-  function requestJSON(url, callback) {
-    $.ajax({
-        url: url,
-        complete: function(xhr) {
-            callback.call(null, xhr.responseJSON);
-        },
-        error: requestFail
-    });
-  }
+  <script>
   $(document).ready(function() {
     var requri = 'https://api.github.com/repos/d-ronin/dRonin/releases/latest';
-    requestJSON(requri, function(json) {
-        if(json.message == "Not Found") {
-            requestFail();
-        }
-        else {
-            loadtemp(json);
-        }
-    });
+
+    $.getJSON(requri)
+      .done(function(json) {
+        var converter = new showdown.Converter();
+        converter.setFlavor('github');
+        json.markdown = converter.makeHtml(json.body);
+
+        json.assets.sort(function(a, b) { return a.label.localeCompare(b.label); });
+        var output = Mustache.render("<ul id=\"release_assets\">{{#assets}}<li><a href={{browser_download_url}}>{{label}}</a></li>{{/assets}}</ul><p>{{{markdown}}}</p>", json);
+
+        $("#rank").html(output);
+        $(".page__title").text(json.name);
+      })
+      .fail(function() {
+        $("#rank").html("<p>Unable to locate release!(</p>");
+      })
   });</script>
 header:
   overlay_color: "#824700"
