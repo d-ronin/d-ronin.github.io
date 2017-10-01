@@ -18,7 +18,7 @@ Python 2.7.x - Get the latest Python **2.7.x** Anaconda distribution from https:
 
 Qt 5.6.1 (online installer) - http://download.qt.io/official_releases/online_installers/qt-unified-windows-x86-online.exe. Please __do not__ install a newer release, as it will not work. Qt provides much of the GUI framework behind GCS.  Also, the compiler and some necessary Unix command line tools are provided.
 
-Microsoft Visual Studio 2015 Community Edition - https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx. __Do not__ install an older or newer release, as it will not work. MSVC is used to compile GCS on Windows.
+Microsoft Visual Studio 2015 Community Edition - https://imagine.microsoft.com/en-us/Catalog/Product/101. __Do not__ install an older or newer release, as it will not work. MSVC is used to compile GCS on Windows.
 
 ### Install required programs
 
@@ -36,7 +36,8 @@ Microsoft Visual Studio 2015 Community Edition - https://www.visualstudio.com/en
 {% include figure image_path="/assets/images/docs/fee4fcd-qtstep2.png" alt="Step 2" %}
 
 * Deselect Qt / Qt 5.7 and anything else that is selected by default (optional).  
-* Expand and select Qt / Qt 5.8 / msvc2015 32-bit.  
+* Expand and select Qt / Qt 5.8 / msvc2015 32-bit. 
+* Expand and select Qt / Qt 5.8 / Qt Charts
 * Expand and select Tools / MinGW 4.9.2.  
 * Accept license and shortcuts.
 
@@ -57,6 +58,11 @@ Microsoft Visual Studio 2015 Community Edition - https://www.visualstudio.com/en
 {% include figure image_path="/assets/images/docs/dfa7a1a-step3.png" alt="VS Step 3" caption="" %}
 
 * Install/accept UAC prompt.
+
+# Add to PATH Environment Variable
+* C:\Qt\Tools\mingw492_32\bin
+* C:\Program Files (x86)\Windows Kits\10\bin\x86
+
 
 ## Fetching source code and building
 
