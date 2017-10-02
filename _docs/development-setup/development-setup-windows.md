@@ -61,11 +61,9 @@ Microsoft Visual Studio 2015 Community Edition - https://imagine.microsoft.com/e
 
 # Add to Path Environment Variable
 
-You may get an error when running make and another for rc.exe, to fix those you need to edit your Environment Variables to include the following in your Path.
+You may get an error when running make, to fix those you need to edit your Environment Variables to include the following in your Path.
 
 * C:\Qt\Tools\mingw492_32\bin
-* C:\Program Files (x86)\Windows Kits\10\bin\x86
-
 
 ## Fetching source code and building
 
