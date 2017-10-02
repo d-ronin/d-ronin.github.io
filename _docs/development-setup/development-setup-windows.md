@@ -16,7 +16,7 @@ This page describes the procedures for setting up a Windows machine to compile d
 
 Python 2.7.x - Get the latest Python **2.7.x** Anaconda distribution from https://www.continuum.io/downloads
 
-Qt 5.6.1 (online installer) - http://download.qt.io/official_releases/online_installers/qt-unified-windows-x86-online.exe. Please __do not__ install a newer release, as it will not work. Qt provides much of the GUI framework behind GCS.  Also, the compiler and some necessary Unix command line tools are provided.
+Qt Unified (online installer) - http://download.qt.io/official_releases/online_installers/qt-unified-windows-x86-online.exe. Please __do not__ install a newer release, as it will not work. Qt provides much of the GUI framework behind GCS.  Also, the compiler and some necessary Unix command line tools are provided.
 
 Microsoft Visual Studio 2015 Community Edition - https://imagine.microsoft.com/en-us/Catalog/Product/101. __Do not__ install an older or newer release, as it will not work. MSVC is used to compile GCS on Windows.
 
@@ -33,7 +33,7 @@ Microsoft Visual Studio 2015 Community Edition - https://imagine.microsoft.com/e
 * Skip account login etc.  
 * Use default installation folder.
 
-{% include figure image_path="/assets/images/docs/fee4fcd-qtstep2.png" alt="Step 2" %}
+{% include figure image_path="/assets/images/docs/x86_QT_Selections.JPG " alt="Step 2" %}
 
 * Deselect Qt / Qt 5.7 and anything else that is selected by default (optional).  
 * Expand and select Qt / Qt 5.8 / msvc2015 32-bit. 
