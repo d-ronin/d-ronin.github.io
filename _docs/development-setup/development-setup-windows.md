@@ -33,7 +33,7 @@ Microsoft Visual Studio 2015 Community Edition - https://imagine.microsoft.com/e
 * Skip account login etc.  
 * Use default installation folder.
 
-{% include figure image_path="/assets/images/docs/x86_QT_Selections.JPG " alt="Step 2" %}
+{% include figure image_path="/assets/images/docs/x86_QT_Selections.png " alt="Step 2" %}
 
 * Deselect Qt / Qt 5.7 and anything else that is selected by default (optional).  
 * Expand and select Qt / Qt 5.8 / msvc2015 32-bit. 
