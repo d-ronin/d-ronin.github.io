@@ -112,8 +112,4 @@ You should be ready to go. Type `make all` to compile the entire project. Type `
 
 ## Running GCS
 
-You can run GCS from the command line after a successful build by typing:
-
-```
-./build/ground/gcs/bin/drgcs
-```
+You can run GCS from the command line after a successful build by typing: `./build/ground/gcs/bin/drgcs`
