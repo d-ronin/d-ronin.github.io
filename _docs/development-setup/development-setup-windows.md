@@ -38,7 +38,7 @@ Microsoft Visual Studio 2015 Community Edition - https://imagine.microsoft.com/e
 * Deselect Qt / Qt 5.7 and anything else that is selected by default (optional).  
 * Expand and select Qt / Qt 5.8 / msvc2015 32-bit. 
 * Expand and select Qt / Qt 5.8 / Qt Charts
-* Expand and select Tools / MinGW 4.9.2.  
+* Expand and select Tools / MinGW 5.3.0  
 * Accept license and shortcuts.
 
 * Install Visual Studio.
@@ -58,12 +58,6 @@ Microsoft Visual Studio 2015 Community Edition - https://imagine.microsoft.com/e
 {% include figure image_path="/assets/images/docs/dfa7a1a-step3.png" alt="VS Step 3" caption="" %}
 
 * Install/accept UAC prompt.
-
-# Add to Path Environment Variable
-
-You may get an error when running make, to fix those you need to edit your Environment Variables to include the following in your Path.
-
-* C:\Qt\Tools\mingw492_32\bin
 
 ## Fetching source code and building
 
