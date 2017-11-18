@@ -101,7 +101,7 @@ If you see a System config alarm, it is possible that autotune was set as a flig
 
 Take the aircraft to a field where there are few obstructions and no people around.
 
-Arm the aircraft in leveling mode and take off (apply a small amount of throttle).  Ideally, the craft will be slightly undertuned and somewhat sluggish with default settings.  If the quadcopter shakes violently, land it and reduce the rate P gains on the stabilization pane.  Also confirm the board orientation and motor mapping.
+Arm the aircraft in leveling mode and take off (apply a small amount of throttle).  Ideally, the craft will be slightly undertuned and somewhat sluggish with default settings.  If the quadcopter shakes violently, land it and reduce the rate P gains on the stabilization pane.  Also, confirm the board orientation, motor mapping, and output settings (e.g. make sure that you are using OneShot or D-Shot and not 50Hz output).
 
 If the aircraft flies well (but sluggishly), flip to the autotune flight mode.  The aircraft will then wobble for 60 seconds.  Your flight controls are still effective to control the quadcopter.  Let it do its thing, and when the wobbling stops, land it and disarm.  Autotune has measured the flight behavior of your aircraft but has not applied the settings yet; this requires using GCS. You can disconnect the battery at this point, as the AutoTune results have been stored in the flight controller.
 
