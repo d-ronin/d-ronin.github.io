@@ -7,7 +7,7 @@ excerpt: "How to use BLHeliConfigurator or BLHeliSuite with dRonin"
 
 dRonin now supports programming ESCs using 4WIF-style passthrough.  The "MSP" module emulates the MultiWii/Cleanflight/Betaflight configuration interface.  BLHeli, BLHeli_S , BLHeli32, and SimonK ESCs can be reprogrammed.
 
-First, it's important to configure the USB virtual com port to speak the MSP protocol.  On the hardware configuration page, select that port as "MSP" and turn off any other MSP ports (e.g. those used for on-screen displays). Restart the flight controller.
+First, it's important to configure the USB virtual com port (USB VCP) to speak the MSP protocol.  On the hardware configuration page, select that port as "MSP" and turn off any other MSP ports (e.g. those used for on-screen displays). Restart the flight controller.
 
 {% include callout type="info" title="Battery power and ESC programming" text="Battery power must be provided for ESC programming.  On some ESCs, it is necessary to apply the battery power after connecting BLHeliConfigurator/BLHeliSuite." %}
 Next, you may configure and program the ESCs.  Remove any props, connect the flight controller with USB, and apply battery power.
