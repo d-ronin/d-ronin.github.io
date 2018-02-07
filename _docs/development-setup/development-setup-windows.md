@@ -14,11 +14,11 @@ This page describes the procedures for setting up a Windows machine to compile d
 
 [Git 2.6.4 or later](https://github.com/git-for-windows/git/releases) - The latest release should be fine.
 
-Python 2.7.x - Get the latest Python **2.7.x** Anaconda distribution from https://www.continuum.io/downloads
+Python 2.7.x - The latest Python **2.7.x** [Anaconda distribution](https://www.continuum.io/downloads) is recommended.
 
-Qt Unified (online installer) - http://download.qt.io/official_releases/online_installers/qt-unified-windows-x86-online.exe. Please __do not__ install a newer release, as it will not work. Qt provides much of the GUI framework behind GCS.  Also, the compiler and some necessary Unix command line tools are provided.
+[Qt 5.9.2 for Windows](https://download.qt.io/official_releases/qt/5.9/5.9.2/qt-opensource-windows-x86-5.9.2.exe) - Please __do not__ install a newer release, as it will not work. Qt provides much of the GUI framework behind GCS, as well as some unix-like toolchain components.
 
-Microsoft Visual Studio 2015 Community Edition - https://imagine.microsoft.com/en-us/Catalog/Product/101. __Do not__ install an older or newer release, as it will not work. MSVC is used to compile GCS on Windows.
+[Microsoft Visual Studio 2015 Community Edition](https://imagine.microsoft.com/en-us/Catalog/Product/101) - __Do not__ install an older or newer release, as it will not work. MSVC is used to compile GCS on Windows.
 
 ### Install required programs
 
@@ -30,15 +30,15 @@ Microsoft Visual Studio 2015 Community Edition - https://imagine.microsoft.com/e
 
 {% include figure image_path="/assets/images/docs/5275df8-qtstep1.png" alt="Step 1" %}
 
-* Skip account login etc.  
+* Skip account login etc.
 * Use default installation folder.
 
 {% include figure image_path="/assets/images/docs/x86_QT_Selections.png" alt="Step 2" %}
 
-* Deselect Qt / Qt 5.7 and anything else that is selected by default (optional).  
-* Expand and select Qt / Qt 5.8 / msvc2015 32-bit. 
-* Expand and select Qt / Qt 5.8 / Qt Charts
-* Expand and select Tools / MinGW 5.3.0  
+* Deselect everything that is selected by default (optional).
+* Expand and select Qt / Qt 5.9.2 / msvc2015 32-bit.
+* Expand and select Qt / Qt 5.9.2 / Qt Charts
+* Expand and select Tools / MinGW 5.3.0
 * Accept license and shortcuts.
 
 * Install Visual Studio.
