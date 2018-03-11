@@ -14,7 +14,7 @@ This page describes the procedures for setting up a Windows machine to compile d
 
 [Git 2.6.4 or later](https://github.com/git-for-windows/git/releases) - The latest release should be fine.
 
-Python 2.7.x - The latest Python **2.7.x** [Anaconda distribution](https://www.continuum.io/downloads) is recommended.
+Python 3 - The latest Python **3.x.x** [Anaconda distribution](https://www.continuum.io/downloads) is recommended.
 
 [Qt 5.9.2 for Windows](https://download.qt.io/official_releases/qt/5.9/5.9.2/qt-opensource-windows-x86-5.9.2.exe) - Please __do not__ install a newer release, as it will not work. Qt provides much of the GUI framework behind GCS, as well as some unix-like toolchain components.
 
@@ -25,7 +25,7 @@ Python 2.7.x - The latest Python **2.7.x** [Anaconda distribution](https://www.c
 {% include callout type="warning" title="Default install paths" text="The bash_profile provided by dRonin is built to use default install paths. Please keep default paths while installing tools unless you are prepared to edit the bash profile by hand. Read the following steps carefully to avoid problems." %}
 
 * Install git. Default options are okay. You will use this to clone the dRonin repository to your machine. It also provides a bash shell and other Unix-like tools.
-* Install Python 2.7.x Anaconda distribution. Default options are okay. Python is used at various stages in the build process for both GCS and firmware.
+* Install Python 3.x.x Anaconda distribution. Default options are okay. Python is used at various stages in the build process for both GCS and firmware.
 * Install Qt SDK.
 
 {% include figure image_path="/assets/images/docs/5275df8-qtstep1.png" alt="Step 1" %}
