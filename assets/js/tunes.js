@@ -1,7 +1,7 @@
 'use strict';
 
 function autotown_api(path) {
-    return 'http://dronin-autotown.appspot.com/api/' + path.join('/');
+    return window.location.protocol + '//dronin-autotown.appspot.com/api/' + path.join('/');
 }
 
 function download(filename, text) {
