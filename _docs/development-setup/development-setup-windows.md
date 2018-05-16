@@ -59,6 +59,8 @@ Python 3 - The latest Python **3.x.x** [Anaconda distribution](https://www.conti
 
 * Install/accept UAC prompt.
 
+* Finally, copy the `python.exe` binary in the Anaconda distribution to `python3.exe`.
+
 ## Fetching source code and building
 
 ### Cloning the repository
