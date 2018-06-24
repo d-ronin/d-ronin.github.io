@@ -20,9 +20,13 @@ BLHeliConfigurator only works with MSP-style passthrough, so setup is easy.  In 
 
 ## With BLHeliSuite
 
-Current revisions of BLHeliSuite can be downloaded from [here](https://www.mediafire.com/folder/dx6kfaasyo24l/BLHeliSuite) (be careful of obnoxious fake download links).  There are also some [manuals on GitHub](https://github.com/4712/BLHeliSuite/tree/master/Manuals).
+Current revisions of BLHeliSuite, or BLHeliSuite32, can be downloaded from [here](https://www.mediafire.com/folder/dx6kfaasyo24l/BLHeliSuite) (be careful of obnoxious fake download links).  There are also some [manuals on GitHub](https://github.com/4712/BLHeliSuite/tree/master/Manuals).
 
-After downloding and running BLHeliSuite, click the menu "Select Atmel/SiLabs Interface" and select "SILABS BLHeli Bootloader (CleanFlight)."  Choose the proper serial port connected to the flight controller at the bottom of the window, and then click "Connect".  Finally, after clicking "Read setup," you may configure the ESCs normally.
+- Download and run BLHeliSuite,
+- on BLHeliSuite only (not 32): click the menu "Select Atmel/SiLabs Interface" and select "SILABS BLHeli Bootloader (CleanFlight)",
+- choose the proper serial port connected to the flight controller at the bottom of the window, and then click "Connect",
+- click "Read Setup",
+- configure the ESCs normally.
 
 ### Linux (WINE)
 
