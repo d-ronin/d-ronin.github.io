@@ -24,6 +24,16 @@ Current revisions of BLHeliSuite can be downloaded from [here](https://www.media
 
 After downloding and running BLHeliSuite, click the menu "Select Atmel/SiLabs Interface" and select "SILABS BLHeli Bootloader (CleanFlight)."  Choose the proper serial port connected to the flight controller at the bottom of the window, and then click "Connect".  Finally, after clicking "Read setup," you may configure the ESCs normally.
 
+### Linux (WINE)
+
+BLHeliSuite works under WINE on Linux systems.
+ - Configure MSP on the USB VCP in dRonin GCS ("Hardware" tab), reboot the controller,
+ - note down the tty device corresponding to your VCP (see the devices combobox in the bottom right corner if GCS if unsure),
+ - run `ls -l ~/.wine/dosdevices` to find which COM device your VCP tty is mapped to in WINE (older versions of WINE don't map devices automatically, in that case you will need to seek help from Google),
+ - launch BLHeliSuite(32).exe, should be able to double click it in Nautilus on a recent GNOME DE
+ - choose the correct COM port, and click "read setup"
+ - proceed to configure ESCs
+
 ## Restore MSP configuration
 
 After completing programming, the port configuration can be restored to save resources (and to re-enable MSP peripherals like OSDs).
